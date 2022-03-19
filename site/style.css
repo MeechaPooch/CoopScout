@@ -146,7 +146,7 @@ background-size: 90px 90px, 90px 90px;
     right:0px;
     bottom:0px;
     left:0px;
-    /* overflow:hidden; */
+    overflow:hidden;
     font-family: 'gotham';
 }
 #page {
