@@ -17,6 +17,9 @@ let screenAnchorX = 0;
 let pointerMoveX = 0
 let swipePage = document.getElementById('page')
 
+document.ontouchmove = function(event){
+    event.preventDefault();
+}
 document.addEventListener('touchmove',(e)=>{
     // set anchors when first move happens, not just first touch (because animations may have changed)
     if(touchPrimed) {

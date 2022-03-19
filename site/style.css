@@ -111,6 +111,14 @@
 
 /* TOP LEVEL CONTAINERS */
 html body {
+
+    position: fixed;
+
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    
     background: rgb(23, 23, 23);
 
     background-image: 
