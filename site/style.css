@@ -112,6 +112,8 @@
 /* TOP LEVEL CONTAINERS */
 html body {
 
+    overflow: hidden;
+    touch-action:none;
     position: fixed;
 
     top:0px;
@@ -135,12 +137,16 @@ background-size: 90px 90px, 90px 90px;
 }
 #screen {
     overscroll-behavior:contain;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+
     position:absolute;
     top:0px;
     right:0px;
     bottom:0px;
     left:0px;
-    overflow:hidden;
+    /* overflow:hidden; */
     font-family: 'gotham';
 }
 #page {
