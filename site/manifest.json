@@ -1,0 +1,15 @@
+{
+    "short_name": "CoopScout",
+    "name": "CoopScout",
+    "icons": [
+    {
+    "src":"https://cdn.shopify.com/s/files/1/0588/9592/5424/products/notebookedit1_1024x1024@2x.png?v=1645036807",
+    "sizes": "192x192",
+    "type": "image/png"
+    }
+    ],
+    "start_url": "/",
+    "background_color": "#e05a47",
+    "theme_color": "#e05a47",
+    "display": "standalone"
+  }
