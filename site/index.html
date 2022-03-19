@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+    <link href="style.css" rel="stylesheet">
+</head>
+<html>
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<body>
+    <div id="screen">
+        <div class="screenInfo" id="screenInfo">
+            | |
+        </div>
+        <div id="page">
+            <div class="surface">
+              
+                <div class="sectionTitle">
+                    Auto Cargo
+                </div>
+                <div class="ballButtons">
+                    <left class="buttonStack">
+                        <div class="buttonLabels">
+                            <!-- <span class="shotName">LOW</span>&nbsp;<span class="shotNum">4</span> -->
+                            <span class="inlineNum" data-type="autoLow">0</span>&nbsp<span class="shotName">LOW</span>
+                        </div>
+                        <!-- <div class="shotNum leftShotNum">4</div> -->
+                        <div class="bigButton upButton" onclick="incrCounter('autoLow',1)">
+                        +
+                        </div>
+                        <div class="bigButton downButton" onclick="incrCounter('autoLow',-1)">
+                            -
+                        </div>
+                    </left>
+                    <right class="buttonStack">
+                        <div class="buttonLabels">
+                        <span class="shotName">HIGH</span> &nbsp<span class="inlineNum" data-type="autoHigh">0</span>
+                        </div>
+                        <!-- <span class="shotNum rightShotNum">4</span> -->
+
+                        <!-- <span class="shotNum">4</span> -->
+                        <div class="bigButton upButton" onclick="incrCounter('autoHigh',1)">
+                            +   
+                        </div>
+                        <div class="bigButton downButton" onclick="incrCounter('autoHigh',-1)">
+                            -
+                        </div>
+                    </right>
+                </div>
+            </div>
+
+
+
+            <div class="surface">
+              
+                <div class="sectionTitle">
+                    Teleop Cargo
+                </div>
+                <div class="ballButtons">
+                    <left class="buttonStack">
+                        <div class="buttonLabels">
+                            <!-- <span class="shotName">LOW</span>&nbsp;<span class="shotNum">4</span> -->
+                            <span class="inlineNum" data-type="teleLow">0</span>&nbsp<span class="shotName">LOW</span>
+                        </div>
+                        <!-- <div class="shotNum leftShotNum">4</div> -->
+                        <div class="bigButton upButton" onclick="incrCounter('teleLow',1)">
+                        +
+                        </div>
+                        <div class="bigButton downButton" onclick="incrCounter('teleLow',-1)">
+                            -
+                        </div>
+                    </left>
+                    <right class="buttonStack">
+                        <div class="buttonLabels">
+                        <span class="shotName">HIGH</span> &nbsp<span class="inlineNum" data-type="teleHigh">0</span>
+                        </div>
+                        <!-- <span class="shotNum rightShotNum">4</span> -->
+
+                        <!-- <span class="shotNum">4</span> -->
+                        <div class="bigButton upButton" onclick="incrCounter('teleHigh',1)">
+                            +   
+                        </div>
+                        <div class="bigButton downButton" onclick="incrCounter('teleHigh',-1)">
+                            -
+                        </div>
+                    </right>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="input.js"></script>
+<script src="script.js"></script>
+</html>

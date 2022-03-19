@@ -1,0 +1,113 @@
+/* GENERAL POSITIONING */
+
+
+/* GENERAL DISPLAY */
+.screenInfo {
+    margin-top: 30px;
+    display: flex;
+    font-size: 9vw;
+    font-weight:lighter;
+    text-align: center;
+}
+.balls{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    gap: 10px;
+}
+
+/*  BUTTON STYLES */
+.ballButtons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    gap:120px;
+}
+
+.buttonStack{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    flex-grow: 1;
+    background-color: rgb(0, 169, 169);
+    gap: 0px;
+    width:35vw;
+}
+
+.sectionTitle{
+    display: flex;
+    font-size: 7vw;
+}
+.buttonLabels{
+    display: flex;
+    font-size: 10vw;
+
+    text-align: center;
+    vertical-align: middle;
+    line-height: 10vw;
+}
+.shotName {
+    text-decoration: underline;
+}
+.shotNum {
+    text-decoration:none !important;
+    font-size: 12vw;
+    text-align: center;
+    /* border-radius: 30px; */
+    width: 40vw;
+}
+.bigButton{
+    font-size: 20vw;
+    font-family:"Arial";
+
+    width:40vw;
+    height:40vw;
+    background-color: aqua;
+    border-radius: 40px;
+    
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40vw;  
+}
+
+/* TOP LEVEL CONTAINERS */
+html body {
+    background: red;
+    height:100%;
+    display:flex;
+}
+#screen {
+    position:absolute;
+    background: green;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+}
+#surface {
+    display:flex;
+    height:100%;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    gap:20px;
+
+    font-family: 'gotham';
+}
+
+/* BUTTONS */
+@font-face {
+    font-family: gotham;
+    src: url(fonts/gotham/Gotham-Bold.otf);
+}
+@font-face {
+    font-family: portico;
+    src: url(fonts/portico/Portico\ Light.otf);
+}

@@ -1,0 +1,165 @@
+/* GENERAL POSITIONING */
+
+
+/* GENERAL DISPLAY */
+.screenInfo {
+    box-shadow: 0px 0px 6px 10px #000000;
+    margin: auto;
+
+    display: flex;
+    font-size: 9vw;
+    font-weight:lighter;
+    border-radius: calc(25vw/9.8);
+
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: white;
+    padding: calc(15vw/9.8);
+    color: rgb(255, 0, 0);
+
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    /* color: rgb(196, 0, 173); */
+    /* background-color: blueviolet; */
+}
+.balls{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    gap: calc(10vw/9.8);
+}
+
+/*  BUTTON STYLES */
+.ballButtons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    gap:calc(40vw/9.8);
+}
+
+.buttonStack{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    flex-grow: 1;
+    gap: calc(40vw/9.8);
+}
+
+.sectionTitle{
+    box-shadow: 0px 7px 6px 0px #000000;
+    display: flex;
+    font-size: 7vw;
+    background-color:orange;
+    border-radius: calc(25vw/9.8);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding-left: calc(20vw/9.8);
+    padding-right: calc(20vw/9.8);
+    color:black;
+   
+    margin-bottom: calc(30vw/9.8);
+}
+.buttonLabels{
+    display: flex;
+    font-size: 10vw;
+
+    text-align: center;
+    vertical-align: middle;
+    line-height: 10vw;
+}
+.shotName {
+    text-decoration: underline;
+}
+.inlineNum{
+    /* background-color: red; */
+    color:red;
+    /* color:grey; */
+
+}
+.bigButton{
+    font-size: 20vw;
+    font-family:"Arial";
+
+    width:40vw;
+    height:40vw;
+    background-color: white;
+    
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40vw;  
+}
+.upButton{
+    border: calc(17vw/9.8) solid rgb(102, 136, 34);
+    color:rgb(102, 136, 34);
+    background-color: rgb(190, 238, 94);
+    /* background-color: rgb(209, 255, 209); */
+    border-radius: calc(80vw/9.8);
+}
+.downButton{
+    color:rgb(176, 0, 91);
+    background-color: rgb(255, 96, 178);
+    border: calc(17vw/9.8) solid rgb(176, 0, 91);
+    border-radius: calc(80vw/9.8);
+}
+
+/* TOP LEVEL CONTAINERS */
+html body {
+    background: rgb(23, 23, 23);
+
+    background-image: 
+    linear-gradient(-45deg, transparent 20%, rgb(31, 31, 31) 25%, transparent 25%),
+    /* linear-gradient(-45deg, transparent 20%, black 25%, transparent 25%),  */
+    /* linear-gradient(-45deg, transparent 75%, black 80%, transparent 0), */
+    radial-gradient(rgb(0, 0, 0) 2px, transparent 0)
+    ;
+background-size: 90px 90px, 90px 90px;
+    /* background: rgb(41, 41, 41); */
+    /* background: red; */
+    height:100%;
+    display:flex;
+}
+#screen {
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    overflow:hidden;
+    font-family: 'gotham';
+}
+#page {
+    display: flex;
+    flex-flow: row nowrap;
+    /* position:absolute; */
+}
+.surface {
+    display:flex;
+    height:100%;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: stretch;
+    gap:0px;
+    color:rgb(255, 255, 255);
+    min-width:100vw;
+
+
+    font-family: 'gotham';
+}
+
+/* BUTTONS */
+@font-face {
+    font-family: gotham;
+    src: url(fonts/gotham/Gotham-Bold.otf);
+}
+@font-face {
+    font-family: portico;
+    src: url(fonts/portico/Portico\ Light.otf);
+}
