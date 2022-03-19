@@ -10,6 +10,7 @@
     font-size: 9vw;
     font-weight:lighter;
     border-radius: calc(25vw/9.8);
+    
 
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -134,8 +135,14 @@ background-size: 90px 90px, 90px 90px;
     /* background: red; */
     height:100%;
     display:flex;
+    margin:0;
+
+
+
 }
 #screen {
+
+
     overscroll-behavior:contain;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
