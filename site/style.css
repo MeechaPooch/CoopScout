@@ -126,6 +126,7 @@ background-size: 90px 90px, 90px 90px;
     display:flex;
 }
 #screen {
+    overscroll-behavior:contain;
     position:absolute;
     top:0px;
     right:0px;

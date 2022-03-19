@@ -47,9 +47,9 @@ document.addEventListener('touchend', (e) => {
     isDragging = false;
     // screenAnchorX += pointerMoveX;
 
-    pageIndex = Math.round(
-        (pageIndex * window.innerWidth + pointerMoveX*1.4)/window.innerWidth
-    )
+    pageIndex = Math.min(Math.max(Math.round(
+        (pageIndex * window.innerWidth + pointerMoveX*3)/window.innerWidth
+    ),pageIndex-1),pageIndex+1)
 
     swipePage.style.transition = ".25s"
     swipePage.style.transform = `translate(${pageIndex*100}vw)`
