@@ -196,7 +196,7 @@ html body {
     /* overflow-x:hidden; */
     -webkit-overflow-scrolling: touch;
     overscroll-behavior:contain;
-    overflow:scroll;
+    overflow:auto;
     font-family: 'gotham';
 }
 
