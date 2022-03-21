@@ -167,6 +167,7 @@ background-size: 90px 90px, 90px 90px;
     /* flex-flow: row nowrap; */
     flex-grow: 1;
    min-height: 0;
+   
 }
 .surface {
 
