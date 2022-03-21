@@ -10,6 +10,7 @@
     font-size: 9vw;
     font-weight:lighter;
     border-radius: calc(25vw/9.8);
+    width:100vw;
     
 
     border-top-left-radius: 0;
@@ -59,13 +60,17 @@
     font-size: 7vw;
     background-color:orange;
     border-radius: calc(25vw/9.8);
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
     padding-left: calc(20vw/9.8);
     padding-right: calc(20vw/9.8);
     color:black;
    
     margin-bottom: calc(30vw/9.8);
+    margin-top:10vw
+}
+.topTitle {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top:0 !important;
 }
 .buttonLabels{
     display: flex;
@@ -125,7 +130,7 @@ html body {
     background: rgb(23, 23, 23);
 
     background-image: 
-    linear-gradient(-45deg, transparent 20%, rgb(31, 31, 31) 25%, transparent 25%),
+    linear-gradient(-45deg, transparent 20%, rgb(46, 46, 46) 25%, transparent 25%),
     /* linear-gradient(-45deg, transparent 20%, black 25%, transparent 25%),  */
     /* linear-gradient(-45deg, transparent 75%, black 80%, transparent 0), */
     radial-gradient(rgb(0, 0, 0) 2px, transparent 0)
@@ -136,9 +141,6 @@ background-size: 90px 90px, 90px 90px;
     height:100%;
     display:flex;
     margin:0;
-
-
-
 }
 #screen {
 
@@ -155,15 +157,20 @@ background-size: 90px 90px, 90px 90px;
     left:0px;
     overflow:hidden;
     font-family: 'gotham';
+
+    display: flex;
+    flex-direction: column;
+    gap:0;
 }
 #page {
     display: flex;
-    flex-flow: row nowrap;
-    /* position:absolute; */
+    /* flex-flow: row nowrap; */
+    flex-grow: 1;
+   min-height: 0;
 }
 .surface {
+
     display:flex;
-    height:100%;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: center;
@@ -171,8 +178,11 @@ background-size: 90px 90px, 90px 90px;
     gap:0px;
     color:rgb(255, 255, 255);
     min-width:100vw;
+    max-height:100%;
+    min-height:100%;
 
-
+    /* overflow-x:hidden; */
+    overflow:scroll;
     font-family: 'gotham';
 }
 
