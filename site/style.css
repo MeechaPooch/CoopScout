@@ -116,9 +116,26 @@
 }
 
 /* TOP LEVEL CONTAINERS */
+#background{
+    position: fixed;
+
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    
+    background-image: 
+    linear-gradient(-45deg, transparent 20%, rgb(46, 46, 46) 25%, transparent 25%),
+    /* linear-gradient(-45deg, transparent 20%, black 25%, transparent 25%),  */
+    /* linear-gradient(-45deg, transparent 75%, black 80%, transparent 0), */
+    radial-gradient(rgb(0, 0, 0) 2px, transparent 0)
+    ;
+background-size: 90px 90px, 90px 90px;
+}
 html body {
 
     overscroll-behavior:contain;
+    -webkit-overflow-scrolling: touch;
     overflow: hidden;
     touch-action:none;
     position: fixed;
@@ -130,13 +147,7 @@ html body {
     
     background: rgb(23, 23, 23);
 
-    background-image: 
-    linear-gradient(-45deg, transparent 20%, rgb(46, 46, 46) 25%, transparent 25%),
-    /* linear-gradient(-45deg, transparent 20%, black 25%, transparent 25%),  */
-    /* linear-gradient(-45deg, transparent 75%, black 80%, transparent 0), */
-    radial-gradient(rgb(0, 0, 0) 2px, transparent 0)
-    ;
-background-size: 90px 90px, 90px 90px;
+   
     /* background: rgb(41, 41, 41); */
     /* background: red; */
     height:100%;
