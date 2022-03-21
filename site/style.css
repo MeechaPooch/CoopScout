@@ -182,6 +182,7 @@ background-size: 90px 90px, 90px 90px;
     min-height:100%;
 
     /* overflow-x:hidden; */
+    overscroll-behavior:contain;
     overflow:scroll;
     font-family: 'gotham';
 }
