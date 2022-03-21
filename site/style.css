@@ -118,6 +118,7 @@
 /* TOP LEVEL CONTAINERS */
 html body {
 
+    overscroll-behavior:contain;
     overflow: hidden;
     touch-action:none;
     position: fixed;

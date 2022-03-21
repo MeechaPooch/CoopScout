@@ -18,9 +18,9 @@ let screenAnchorX = 0;
 let pointerMoveX = 0
 let swipePage = document.getElementById('page')
 
-document.body.addEventListener('touchmove', function(e) { 
-    e.preventDefault(); 
-});
+// document.body.addEventListener('touchmove', function(e) { 
+//     e.preventDefault(); 
+// });
 document.querySelectorAll('.surface').forEach(surface=>surface.addEventListener('scroll',(e)=>{
     isScrolling = true;
 }))
