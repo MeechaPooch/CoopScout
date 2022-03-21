@@ -25,7 +25,7 @@ document.querySelectorAll('.surface').forEach(surface=>surface.addEventListener(
     isScrolling = true;
 }))
 document.addEventListener('touchmove',(e)=>{
-    if(isScrolling && pointerMoveX < window.innerWidth/10) {
+    if(isScrolling && Math.abs(pointerMoveX) < window.innerWidth/10) {
         swipePage.style.transform = `translate(${pageIndex*100}vw)`
         pointerMoveX = 0;
     } else {
