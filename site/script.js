@@ -25,8 +25,9 @@ document.querySelectorAll('.surface').forEach(surface=>surface.addEventListener(
     isScrolling = true;
 }))
 document.addEventListener('touchmove',(e)=>{
-    if(isScrolling) {
+    if(isScrolling && pointerMoveX < window.innerWidth/10) {
         swipePage.style.transform = `translate(${pageIndex*100}vw)`
+        pointerMoveX = 0;
     } else {
         // set anchors when first move happens, not just first touch (because animations may have changed)
         if(touchPrimed) {
@@ -68,4 +69,6 @@ document.addEventListener('touchend', (e) => {
     swipePage.style.transform = `translate(${pageIndex*100}vw)`
 
     setPageLabel(-pageIndex)
+
+    
 })
