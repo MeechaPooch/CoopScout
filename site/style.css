@@ -124,12 +124,18 @@
     font-size: 6vw;
     padding:3vw;
     width: 80vw;
-    background-color: rgba(255, 166, 0, 0.256);
+    background-color: rgb(255, 166, 0,0.17);
     text-align: center; 
     margin: 1vw;
+    transition: .2s;
+}
+.selected {
+    background-color: rgb(255, 166, 0,1);
+    color:rgb(0, 0, 0);
 }
 .checkbox {
     size-adjust: 200%;
+    display: none;
 }
 
 
