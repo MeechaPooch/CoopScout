@@ -4,8 +4,9 @@ let screenInfo = document.getElementById('screenInfo')
 let labels = ['auto','teleop','endgame']
 function setPageLabel(index) {
     let label = labels[index]?.toUpperCase();
+    if(!label) {return}
 
-    screenInfo.innerText = `${teamNumber} | ${label} | 5s`   
+    screenInfo.innerText = `${teamNumber} | ${label} | 0s`   
 }
 setPageLabel(0)
 
@@ -25,6 +26,14 @@ let swipingUp = false;
 document.querySelectorAll('.surface').forEach(surface=>surface.addEventListener('scroll',(e)=>{
     isScrolling = true;
 }))
+
+function setTransform(amm) {
+    swipePage.style.transform = `translate(${amm})`
+    if(parseFloat(amm) >= 0){
+        screenInfo.style.transform = `translate(${amm})`
+    }
+}
+
 document.addEventListener('touchmove',(e)=>{
     
     if(touchPrimed) {
@@ -43,13 +52,13 @@ document.addEventListener('touchmove',(e)=>{
     if( 
         swipingUp
         /*&& isScrolling && Math.abs(pointerMoveX) < window.innerWidth/10*/) {
-        swipePage.style.transform = `translate(${pageIndex*100}vw)`
+        setTransform(`${pageIndex*100}vw`)
         pointerMoveX = 0;
     } else {
         // set anchors when first move happens, not just first touch (because animations may have changed)
        
         pointerMoveX = e.targetTouches[0].pageX - anchorX
-        swipePage.style.transform = `translate(${screenAnchorX + pointerMoveX}px)`
+        setTransform(`${screenAnchorX + pointerMoveX}px`)
 
         setPageLabel(-Math.round(
             (pageIndex * window.innerWidth + pointerMoveX*.9)/window.innerWidth
@@ -73,6 +82,7 @@ document.addEventListener('touchstart', (e) => {
 
     
     swipePage.style.transition = "0s"
+    screenInfo.style.transition = "0s"
     
 
 })
@@ -86,7 +96,8 @@ document.addEventListener('touchend', (e) => {
     ),pageIndex-1),pageIndex+1)
 
     swipePage.style.transition = ".25s"
-    swipePage.style.transform = `translate(${pageIndex*100}vw)`
+    screenInfo.style.transition = ".25s"
+    setTransform(`${pageIndex*100}vw`)
 
     setPageLabel(-pageIndex)
 

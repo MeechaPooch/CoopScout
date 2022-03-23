@@ -12,6 +12,13 @@ function incrCounter(label,ammount) {
 ///// CHECKBOX /////
 
 function selectOption(box) {
+
+    if(box.className.includes('exclusive')) {
+        box.parentElement.querySelectorAll('.checkboxBox').forEach(boxbox=>{
+            boxbox.classList.remove('selected')
+        })
+    }
+
     box.classList.toggle('selected')
 }
 

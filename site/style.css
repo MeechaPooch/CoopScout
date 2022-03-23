@@ -3,6 +3,7 @@
 
 /* GENERAL DISPLAY */
 .screenInfo {
+
     box-shadow: 0px 0px 6px 10px #000000;
     margin: auto;
 
@@ -101,6 +102,7 @@
     text-align: center;
     vertical-align: middle;
     line-height: 40vw;  
+
 }
 .upButton{
     border: calc(17vw/9.8) solid rgb(102, 136, 34);
@@ -108,12 +110,17 @@
     background-color: rgb(190, 238, 94);
     /* background-color: rgb(209, 255, 209); */
     border-radius: calc(80vw/9.8);
+
 }
 .downButton{
     color:rgb(176, 0, 91);
     background-color: rgb(255, 96, 178);
     border: calc(17vw/9.8) solid rgb(176, 0, 91);
     border-radius: calc(80vw/9.8);
+}
+.smollor{
+    height:30vw;
+    line-height: 30vw;  
 }
 /* CHECKBOX */
 .checkboxBox{
@@ -138,6 +145,12 @@
     display: none;
 }
 
+/*text note*/
+.textnote{
+    width:80vw;
+    min-height:40vw;
+    font-size:5vw;
+}
 
 /* TOP LEVEL CONTAINERS */
 #background{

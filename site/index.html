@@ -79,7 +79,7 @@
                         <div class="bigButton upButton" onclick="incrCounter('teleLow',1)">
                         +
                         </div>
-                        <div class="bigButton downButton" onclick="incrCounter('teleLow',-1)">
+                        <div class="smollor bigButton downButton" onclick="incrCounter('teleLow',-1)">
                             -
                         </div>
                     </left>
@@ -93,7 +93,7 @@
                         <div class="bigButton upButton" onclick="incrCounter('teleHigh',1)">
                             +   
                         </div>
-                        <div class="bigButton downButton" onclick="incrCounter('teleHigh',-1)">
+                        <div class="smollor bigButton downButton" onclick="incrCounter('teleHigh',-1)">
                             -
                         </div>
                     </right>
@@ -105,19 +105,31 @@
                 
             <label class="checkboxBox" for="auto-none"> 
             No Defense</label>
-            <label class="checkboxBox selected" for="vehicle1"><input class="checkbox" type="checkbox" id="">
-            Blocked Launchpad</label>
-            <label class="checkboxBox" for="vehicle1"><input class="checkbox" type="checkbox" id="">
-            Stored Opponent's Balls in Indexer</label>
-            <label class="checkboxBox" for="vehicle1"><input class="checkbox" type="checkbox" id="">
-            Trapped Balls Against Wall</label>
+            <br>
+            <label class="checkboxBox" for="vehicle1">Blocked Launchpad</label>
+            <label class="checkboxBox" for="vehicle1">Shoved Robots (Gracious-Professionally)</label>
+            <br>
+            <label class="checkboxBox" for="vehicle1">Stored Opponent's Balls in Indexer</label>
+            <label class="checkboxBox" for="vehicle1">Trapped/Pushed Balls Against Wall</label>
             <space></space>
             </div>
 
 
             <div class="surface">
                 <div class="sectionTitle topTitle">Climing!</div>
+            <label class="checkboxBox exclusive" for="vehicle1">Not Attempted</label>
+            <label class="checkboxBox exclusive" for="vehicle1">Low Bar</label>
+            <label class="checkboxBox exclusive" for="vehicle1">Mid Bar</label>
+            <label class="checkboxBox exclusive" for="vehicle1">High Bar</label>
+            <label class="checkboxBox exclusive" for="vehicle1">Traversal Bar</label>
+            <label class="checkboxBox exclusive" for="vehicle1">Attempted But Fell :(</label>
+
+            <div class="sectionTitle">
+                Notes
             </div>
+            <textarea class="textnote"></textarea>
+        <space></space>    
+        </div>
         </div>
     </div>
 </body>
