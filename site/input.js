@@ -18,6 +18,9 @@ function selectOption(box) {
             boxbox.classList.remove('selected')
         })
     }
+    if(box.parentElement.id == 'teleop' && !box.className.includes('selected')) {
+        document.querySelector('#nodef').classList.remove('selected')
+    }
 
     box.classList.toggle('selected')
 }
