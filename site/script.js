@@ -16,7 +16,8 @@ let isScrolling = false;
 let anchorX = 0;
 let screenAnchorX = 0;
 let pointerMoveX = 0
-let swipePage = document.getElementById('page')
+let swipePage = document.getElementById('page');
+let swipingUp = false;
 
 // document.body.addEventListener('touchmove', function(e) { 
 //     e.preventDefault(); 
@@ -25,15 +26,28 @@ document.querySelectorAll('.surface').forEach(surface=>surface.addEventListener(
     isScrolling = true;
 }))
 document.addEventListener('touchmove',(e)=>{
-    if(false && isScrolling && Math.abs(pointerMoveX) < window.innerWidth/10) {
+    
+    if(touchPrimed) {
+        touchPrimed = false;
+        screenAnchorX = swipePage.getBoundingClientRect().x
+    }
+    if(!swipeSlopeDetermined) {
+        let swipeSlope = Math.abs((e.changedTouches[0].clientY - touchStartY) /
+        (e.changedTouches[0].clientX - touchStartX))
+        if((e.changedTouches[0].clientY - touchStartY)!=0 || (e.changedTouches[0].clientX - touchStartX)!=0) {
+            swipingUp = swipeSlope > 1
+            swipeSlopeDetermined = true
+        }
+    }
+
+    if( 
+        swipingUp
+        /*&& isScrolling && Math.abs(pointerMoveX) < window.innerWidth/10*/) {
         swipePage.style.transform = `translate(${pageIndex*100}vw)`
         pointerMoveX = 0;
     } else {
         // set anchors when first move happens, not just first touch (because animations may have changed)
-        if(touchPrimed) {
-            touchPrimed = false;
-            screenAnchorX = swipePage.getBoundingClientRect().x
-        }
+       
         pointerMoveX = e.targetTouches[0].pageX - anchorX
         swipePage.style.transform = `translate(${screenAnchorX + pointerMoveX}px)`
 
@@ -42,8 +56,14 @@ document.addEventListener('touchmove',(e)=>{
         ))
     }
 })
+let touchStartX = 0;
+let touchStartY = 0;
 document.addEventListener('touchstart', (e) => {
+
+    touchStartX = e.changedTouches[0].clientX
+    touchStartY = e.changedTouches[0].clientY
     touchPrimed = true;
+    swipeSlopeDetermined = false
     isDragging = true;
     isScrolling = false;
     // set anchors initially (will happen again)
