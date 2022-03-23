@@ -7,6 +7,7 @@ data = {
 
 function incrCounter(label,ammount) {
     data[label] += ammount
+    if(data[label]<0) {data[label]=0}
     document.querySelector('.inlineNum[data-type=' + label + ']').innerText=data[label]
 }
 ///// CHECKBOX /////
