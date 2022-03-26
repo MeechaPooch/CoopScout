@@ -22,6 +22,7 @@ FileSave.startSaving(1)
 
 function recalcNow() {
     NOW.match = matchdb.getCurrentMatch().match.match_number
+    NOW.status = matchdb.getCurrentMatch().status
 }
 recalcNow()
 
@@ -39,11 +40,19 @@ app.get('/teamInfo',(req,res)=>{
     recalcNow()
     let scoutId = req.query.scoutId
     if(!scoutId) {res.send({err:'please encode scout id in url query'}); return;}
+    if(NOW.status == 'active' && !assigner.getScoutAssignment(scoutId)) {res.send({active:true,err:'match is currently active'});return;}
     let scoutInfo = assigner.assignScout(scoutId,matchdb.getCurrentTeams())
     if(!scoutInfo) {res.send({err:'all teams are already scouted'}); return;}
     let matchInfo = matchdb.getTeamInfo(scoutInfo.teamId,NOW.match)
     let teamInfo = teamdb.getTeam(scoutInfo.teamId)
     let retInfo = {color:matchInfo.color, number:teamInfo.team_number,name:teamInfo.nickname,match:NOW.match}
     res.send(retInfo)
+})
+app.post('/leave',(req,res)=>{ // Todo: auto assigning
+    let scoutId = req.query.scoutId
+    res.end()
+})
+app.post('/submit',(req,res)=>{
+    res.end()
 })
 app.listen(port,()=>{console.log('api listening...')})

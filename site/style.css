@@ -1,5 +1,121 @@
+/* ACCENT COLORS! */
+:root{
+    --red:red;
+    --blue:rgb(123, 125, 255);
+    --alliance: var(--blue);
+}
+
+
 /* GENERAL POSITIONING */
 
+/*  WELCOME SCREEN  */
+
+.openingScreen{
+    position:absolute;
+    left:-100vw;
+}
+
+#welcome {
+    font-size: 5vw;
+    text-align: center;
+}
+#logo{
+    width:15vw;
+    margin-top: 3vw;
+}
+#waiting {
+    display: none;
+}
+.frontButtons{
+    margin-top: 14vw;
+    display:flex;
+    flex-direction: row;
+    gap:15vw;
+    bottom:10vw;
+    position: absolute;
+}
+.frontButton{
+    text-align: center;
+    border-radius: 3vw;
+    width:30vw;
+    height:10vw;
+    font-size: 7vw;
+    line-height: 10vw;
+    outline: solid rgb(255, 255, 255) 1vw;
+}
+#waitingText {
+    font-size: 12vw;
+    margin-top: 13vw;
+    width: 90vw;
+    text-align: center;
+}
+.loader {
+    margin-top: 10vw;
+    border: 6vw solid #f3f3f3; /* Light grey */
+    border-top: 6vw solid rgb(23, 23, 23); /* Blue */
+    border-radius: 50%;
+    min-width: 30vw;
+    min-height: 30vw;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /*/// displaying ////*/
+#displaying{
+    text-align: center;
+
+    /* display: none; */
+}
+.infoLabel{
+    display: flex;
+    font-size: 7vw;
+    text-align: center;
+    margin-bottom: 2vw;
+    margin-top: 20vw;
+}
+.firstInfoLabel{
+    margin-top: 0;
+}
+.infoText{
+    font-size: 26vw;
+    color: var(--alliance);
+}
+.infoName{
+    font-size: 8vw;
+    max-width: 80vw;
+    display: flex;
+    text-align: center;
+}
+.noMargin{
+    margin:0
+}
+.infoAllianceName{
+    font-size: 18vw;
+    max-width: 80vw;
+    display: flex;
+    text-align: center;
+    color: var(--alliance)
+}
+.allianceWord{
+    color: var(white);
+    font-size: 10vw;
+}
+.swipeee{
+    position: absolute;
+    bottom: 15vw;
+    margin-top: 20vw;
+    border-radius: 40vw;
+    height:17vw;
+    line-height: 17vw;
+    width:80vw;
+    background-color: rgba(255, 255, 255, 0.329);
+    color:rgba(255, 255, 255, 0.658);
+    font-size: 5vw;
+}
 
 /* GENERAL DISPLAY */
 .screenInfo {
@@ -19,7 +135,7 @@
     background-color: white;
     padding-top: calc(15vw/9.8);
     padding-bottom: calc(15vw/9.8);
-    color: rgb(255, 0, 0);
+    color: var(--alliance);
 
     text-align: center;
     align-items: center;
@@ -60,7 +176,7 @@
     box-shadow: 0px 7px 6px 0px #000000;
     display: flex;
     font-size: 7vw;
-    background-color:orange;
+    background-color:var(--alliance);;
     border-radius: calc(25vw/9.8);
     padding-left: calc(20vw/9.8);
     padding-right: calc(20vw/9.8);
@@ -88,7 +204,7 @@
 }
 .inlineNum{
     /* background-color: red; */
-    color:red;
+    color:var(--alliance);;
     /* color:grey; */
 
 }
@@ -138,7 +254,7 @@
     transition: .2s;
 }
 .selected {
-    background-color: rgb(255, 166, 0,1);
+    background-color: var(--alliance);
     color:rgb(0, 0, 0);
 }
 .checkbox {
