@@ -17,7 +17,8 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     background-color: white;
-    padding: calc(15vw/9.8);
+    padding-top: calc(15vw/9.8);
+    padding-bottom: calc(15vw/9.8);
     color: rgb(255, 0, 0);
 
     text-align: center;
