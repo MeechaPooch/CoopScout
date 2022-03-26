@@ -11,7 +11,7 @@ export class MatchDB {
     }
 
     getCurrentTeams() {
-        let currentMatch = this.getCurrentMatch()
+        let currentMatch = this.getCurrentMatch().match
         return (
             currentMatch.alliances.blue.team_keys.map(key=>key.split('frc').join('')).concat(
                 currentMatch.alliances.red.team_keys.map(key=>key.split('frc').join(''))
@@ -25,13 +25,16 @@ export class MatchDB {
         let matchesSorted = Object.values(this.matches).sort((a,b)=>(a.predicted_time - b.predicted_time))
         for (let match of matchesSorted) {
             if(now < match.predicted_time) { // if we hit a match that happens after now
-                // TODO! LOGIC HERE!
-                return match;
+                if(now > match.predicted_time - CONFIG.secondsBefore) {
+                    return {match, status:'waiting'}
+                } else {
+                    return {match:lastMatch, status:'active'}
+                }
                 break;
             }
             lastMatch = match
         }
-        return matchesSorted[matchesSorted.length-1];
+        return {match:matchesSorted[matchesSorted.length-1],status:"active"};
     }
 
     getMatch(matchNum) {
