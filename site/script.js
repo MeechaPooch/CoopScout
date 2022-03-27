@@ -1,4 +1,9 @@
-var teamNumber = '265'
+TEAM_INFO = {
+    color:'blue',
+    number:1540,
+    name:"Flaming Chickens",
+    match:0
+}
 let screenInfo = document.getElementById('screenInfo')  
 document.getElementById('welcome').innerHTML = 'CoopScout<br>'+new Date().getFullYear() 
 
@@ -9,7 +14,7 @@ function setPageLabel(index) {
     let duration = durations[index]
     if(!label) {return}
 
-    screenInfo.innerText = `${teamNumber} | ${label} | ${duration}`   
+    screenInfo.innerText = `${TEAM_INFO.number} | ${label} | ${duration}`   
 }
 setPageLabel(0)
 

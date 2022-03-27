@@ -1,9 +1,6 @@
 API_URL = 'http://localhost:3002'
 
 STATE = {
-    team:0,
-    name:'',
-    color:'red',
     waiting:false,
     fillingout: false,
     clockedIn: true,
