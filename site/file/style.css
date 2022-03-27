@@ -298,6 +298,7 @@
 /* TOP LEVEL CONTAINERS */
 #background{
     position: fixed;
+    z-index:-1;
 
     top:0px;
     right:0px;
