@@ -28,9 +28,9 @@ SCOUT_INFO = {
 function getYaName() {
     SCOUT_INFO.id = getCookie('scoutId')
     if(!SCOUT_INFO.id) {
-        SCOUT_INFO.id = new String(prompt('Type your full name')).toLowerCase().split(' ').join('')
-        if(SCOUT_INFO.id.length < 7) {getYaName(); return;}
-        setCookie('scoutId',SCOUT_INFO.id,100000000)
+        SCOUT_INFO.id = new String(prompt('Enter your name (we will use it as your scout id)')).toLowerCase().split(' ').join('')
+        if(SCOUT_INFO.id.length < 2) {getYaName(); return;}
+        setCookie('scoutId',SCOUT_INFO.id,100000000) // TODO: find better way to make permanent cookie
     }
 }
 getYaName()

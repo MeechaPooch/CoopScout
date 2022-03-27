@@ -41,7 +41,7 @@
     height:10vw;
     font-size: 7vw;
     line-height: 10vw;
-    outline: solid rgb(255, 255, 255) 1vw;
+    border: solid rgb(255, 255, 255) 1vw;
 }
 .waitingText {
     font-size: 12vw;
@@ -77,13 +77,13 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(0, 255, 0);
-    outline: solid green 3vw;
+    border: solid green 3vw;
     color:rgb(0, 87, 0);
     font-size: 0;
     margin-top: 15vw;
     width: 60vw;
     height: 60vw;
-    border-radius: 30vw;
+    border-radius: 60vw;
     text-align: center;
 }
 
