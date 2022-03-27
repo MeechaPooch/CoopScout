@@ -27,7 +27,6 @@ setPageLabel(0)
 let pageIndex = 1
 let touchPrimed = false;
 let isDragging = false;
-let isScrolling = false;
 let anchorX = 0;
 let screenAnchorX = 0;
 let pointerMoveX = 0
@@ -39,9 +38,9 @@ setTransform(`${pageIndex*100}vw`)
 // document.body.addEventListener('touchmove', function(e) { 
 //     e.preventDefault(); 
 // });
-document.querySelectorAll('.surface').forEach(surface=>surface.addEventListener('scroll',(e)=>{
-    isScrolling = true;
-}))
+// document.querySelectorAll('.surface').forEach(surface=>surface.addEventListener('scroll',(e)=>{
+//     isScrolling = true;
+// }))
 
 function setTransform(amm) {
     let vwAmm = parseFloat(amm)
@@ -85,12 +84,13 @@ document.addEventListener('touchmove',(e)=>{
         }
     }
 
-    if( 
-        swipingUp
-        /*&& isScrolling && Math.abs(pointerMoveX) < window.innerWidth/10*/) {
+    if(swipingUp) {
         setTransform(`${pageIndex*100}vw`)
         pointerMoveX = 0;
     } else {
+        document.querySelectorAll('.surface').forEach(surface=>{
+            surface.scrollTop = 0;
+            })
         // set anchors when first move happens, not just first touch (because animations may have changed)
        
         pointerMoveX = e.targetTouches[0].pageX - anchorX
@@ -113,7 +113,6 @@ document.addEventListener('touchstart', (e) => {
     touchPrimed = true;
     swipeSlopeDetermined = false
     isDragging = true;
-    isScrolling = false;
     // set anchors initially (will happen again)
     anchorX = e.targetTouches[0].pageX;
     screenAnchorX = swipePage.getBoundingClientRect().x
@@ -129,7 +128,6 @@ document.addEventListener('touchend', (e) => {
     if(STATE.waiting) {return}
 
 
-    isScrolling = false;
     isDragging = false;
     // screenAnchorX += pointerMoveX;
 
