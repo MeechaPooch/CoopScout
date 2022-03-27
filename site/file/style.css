@@ -152,6 +152,7 @@
     font-weight:lighter;
     border-radius: calc(25vw/9.8);
     width:100vw;
+    white-space: nowrap;
     
 
     border-top-left-radius: 0;
@@ -400,8 +401,4 @@ space{
 @font-face {
     font-family: gotham;
     src: url(fonts/gotham/Gotham-Bold.otf);
-}
-@font-face {
-    font-family: portico;
-    src: url(fonts/portico/Portico\ Light.otf);
 }

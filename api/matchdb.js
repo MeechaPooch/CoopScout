@@ -6,7 +6,6 @@ export class MatchDB {
     matches = {}
 
     constructor() {
-        this.refreshData()
         setInterval(this.refreshData.bind(this),30 * 1000)
     }
 
@@ -56,7 +55,7 @@ export class MatchDB {
     }
 
     refreshData() {
-        fetch(`https://www.thebluealliance.com/api/v3/event/${NOW.year}${NOW.event}/matches`,{headers:{
+        return fetch(`https://www.thebluealliance.com/api/v3/event/${NOW.year}${NOW.event}/matches`,{headers:{
             "X-TBA-Auth-Key":"z6Y2VRevkgac8q9f9tReGE8K1iPvhSM4zJzRMfikF3WHyQhfzdr6uizUMS6QPWWA",
         }}).then(res=>res.json().then(json=>{
             json.forEach(match=>{

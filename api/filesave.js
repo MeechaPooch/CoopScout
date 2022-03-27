@@ -14,7 +14,7 @@ export class FileSave {
 
     static saveObjs = []
 
-    static load(constructor) {
+    static async load(constructor) {
         let path = this.dir + '/' + constructor.saveTo;
         let ret;
         if(fs.existsSync(path)) {
@@ -31,9 +31,15 @@ export class FileSave {
         } catch(e) {
             console.log(e);
             ret = new constructor()
+            if(typeof ret.refreshData == 'function') {
+                await ret.refreshData()
+            }
         }
         } else {
             ret = new constructor()
+            if(typeof ret.refreshData == 'function') {
+                await ret.refreshData()
+            }
         }
         this.saveObjs.push(ret)
         return ret;

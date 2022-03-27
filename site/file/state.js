@@ -4,7 +4,7 @@ STATE = {
     waiting:false,
     fillingout: false,
     clockedIn: true,
-    justSubmitted: -1, // match number
+    justSubmitted: getCookie('lastMatch') ? getCookie('lastMatch') : -1, // match number
 }
 
 function setCookie(cname, cvalue, exdays) {
@@ -127,6 +127,7 @@ async function queryScoutData(override) {
 function submitScoutData() {
     STATE.fillingout = false;
     STATE.justSubmitted = TEAM_INFO.match
+    setCookie('lastMatch',STATE.justSubmitted)
     setWaiting(true)
 }
 

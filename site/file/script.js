@@ -5,7 +5,7 @@ TEAM_INFO = {
     match:0
 }
 let screenInfo = document.getElementById('screenInfo')  
-document.getElementById('welcome').innerHTML = 'CoopScout<br>'+new Date().getFullYear() 
+// document.getElementById('welcome').innerHTML = 'CoopScout<br>'+new Date().getFullYear() 
 
 let labels = ['auto','teleop','endgame']
 let durations = ['15s','45s','30s']
@@ -14,7 +14,13 @@ function setPageLabel(index) {
     let duration = durations[index]
     if(!label) {return}
 
-    screenInfo.innerText = `${TEAM_INFO.number} | ${label} | ${duration}`   
+    if(index == 2) {
+        screenInfo.style.fontSize = "8vw"
+    }  else {
+        screenInfo.style.fontSize = "9vw"
+    }
+    screenInfo.innerText = `${TEAM_INFO.number} | ${label} | ${duration}`
+   
 }
 setPageLabel(0)
 
@@ -133,11 +139,29 @@ document.addEventListener('touchend', (e) => {
     if(pageIndex > 1) {pageIndex = 1}
     if(pageIndex < -3) {pageIndex = -3}
 
+    screenInfo.style.transition = "0"
+    setPageLabel(-pageIndex)
+
     swipePage.style.transition = ".25s"
     screenInfo.style.transition = ".25s"
+
     setTransform(`${pageIndex*100}vw`)
 
-    setPageLabel(-pageIndex)
 
     
 })
+function forceRedraw(element){
+
+    if (!element) { return; }
+
+    var n = document.createTextNode(' ');
+    var disp = element.style.display;  // don't worry about previous display style
+
+    element.appendChild(n);
+    element.style.display = 'none';
+
+    setTimeout(function(){
+        element.style.display = disp;
+        n.parentNode.removeChild(n);
+    },20); // you can play with this timeout to make it as short as possible
+}

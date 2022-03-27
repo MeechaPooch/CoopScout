@@ -9,19 +9,20 @@ import cors from 'cors'
 import { Now } from './now.js'
 import { Config } from './config.js'
 import { TimeLord } from './timelord.js'
+import { SiteServer } from './siteserver.js'
 FileSave.useDir('storage')
 
 
 let NOW = new Now()
 let CONFIG = new Config()
-let timelord = FileSave.load(TimeLord)
+let timelord = await FileSave.load(TimeLord)
 Object.prototype.NOW = NOW
 Object.prototype.CONFIG = CONFIG
 Object.prototype.TIMELORD = timelord
-let assigner = FileSave.load(Assigner)
-let scoutdb = FileSave.load(Scoutdb)
-let teamdb = FileSave.load(TeamDB)
-let matchdb = FileSave.load(MatchDB)
+let assigner = await FileSave.load(Assigner)
+let scoutdb = await FileSave.load(Scoutdb)
+let teamdb = await FileSave.load(TeamDB)
+let matchdb = await FileSave.load(MatchDB)
 FileSave.startSaving(1)
 
 function recalcNow() {
@@ -35,7 +36,8 @@ assigner.priority = ['1540','2412']
 const app = express()
 const port = 3002
 app.use(cors('*'))
-
+let siteServer = new SiteServer()
+siteServer.bindApi(app)
 
 
 // info: {teamNum, teamName, allianceColor, matchNum}
