@@ -85,7 +85,7 @@ document.addEventListener('touchmove',(e)=>{
     }
 
     if(swipingUp) {
-        setTransform(`${pageIndex*100}vw`)
+        // setTransform(`${pageIndex*100}vw`)
         pointerMoveX = 0;
     } else {
         // set anchors when first move happens, not just first touch (because animations may have changed)
