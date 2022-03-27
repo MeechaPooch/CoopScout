@@ -1,4 +1,4 @@
-API_URL = 'http://localhost:3002'
+API_URL = ''
 
 STATE = {
     waiting:false,

@@ -34,7 +34,7 @@ recalcNow()
 assigner.priority = ['1540','2412']
 
 const app = express()
-const port = 3002
+const port = 3001
 app.use(cors('*'))
 let siteServer = new SiteServer()
 siteServer.bindApi(app)
