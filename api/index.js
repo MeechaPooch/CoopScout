@@ -31,7 +31,6 @@ function recalcNow() {
 recalcNow()
 
 assigner.priority = ['1540','2412']
-console.log()
 
 const app = express()
 const port = 3002
