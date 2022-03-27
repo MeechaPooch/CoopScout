@@ -14,8 +14,6 @@ function setPageLabel(index) {
     let duration = durations[index]
     if(!label) {return}
 
-    document.getElementById(labels[index]).focus()
-
     if(index == 2) {
         screenInfo.style.fontSize = "8vw"
     }  else {
