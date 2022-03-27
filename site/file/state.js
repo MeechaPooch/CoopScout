@@ -4,7 +4,7 @@ STATE = {
     waiting:false,
     fillingout: false,
     clockedIn: true,
-    justSubmitted: getCookie('lastMatch') ? getCookie('lastMatch') : -1, // match number
+    justSubmitted: localStorage.getItem('lastMatch') ? localStorage.getItem('lastMatch') : -1, // match number
 }
 
 function setCookie(cname, cvalue, exdays) {
@@ -23,11 +23,11 @@ SCOUT_INFO = {
     name:"???",
 }
 function getYaName() {
-    SCOUT_INFO.id = getCookie('scoutId')
+    SCOUT_INFO.id = localStorage.getItem('scoutId')
     if(!SCOUT_INFO.id) {
         SCOUT_INFO.id = new String(prompt('Enter your name (we will use it as your scout id)')).toLowerCase().split(' ').join('')
         if(SCOUT_INFO.id.length < 2) {getYaName(); return;}
-        setCookie('scoutId',SCOUT_INFO.id,100000000) // TODO: find better way to make permanent cookie
+        localStorage.setItem('scoutId',SCOUT_INFO.id) 
     }
 }
 getYaName()
@@ -127,7 +127,7 @@ async function queryScoutData(override) {
 function submitScoutData() {
     STATE.fillingout = false;
     STATE.justSubmitted = TEAM_INFO.match
-    setCookie('lastMatch',STATE.justSubmitted)
+    localStorage.setItem('lastMatch',STATE.justSubmitted)
     setWaiting(true)
 }
 
