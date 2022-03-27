@@ -11,6 +11,9 @@ export class MatchDB {
     }
 
     getCurrentTeams() {
+        if(this.TIMELORD.robotsOverridden) {
+            return this.TIMELORD.red.concat(this.TIMELORD.blue)
+        }
         let currentMatch = this.getCurrentMatch().match
         return (
             currentMatch.alliances.blue.team_keys.map(key=>key.split('frc').join('')).concat(
@@ -20,6 +23,9 @@ export class MatchDB {
     }
 
     getCurrentMatch() { // todo: detect if we're in a match, after a match, or waiting for one to start
+        if(this.TIMELORD.timeOverridden) {
+            return {match:this.getMatch(this.TIMELORD.match),status:this.TIMELORD.status}
+        }
         let lastMatch = null
         let now = Date.now()/1000
         let matchesSorted = Object.values(this.matches).sort((a,b)=>(a.predicted_time - b.predicted_time))

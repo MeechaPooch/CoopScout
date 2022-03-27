@@ -1,7 +1,7 @@
 /* ACCENT COLORS! */
 :root{
     --red:red;
-    --blue:rgb(123, 125, 255);
+    --blue:rgb(0, 119, 255);
     --alliance: var(--blue);
 }
 
@@ -43,7 +43,7 @@
     line-height: 10vw;
     outline: solid rgb(255, 255, 255) 1vw;
 }
-#waitingText {
+.waitingText {
     font-size: 12vw;
     margin-top: 13vw;
     width: 90vw;
@@ -54,15 +54,39 @@
     border: 6vw solid #f3f3f3; /* Light grey */
     border-top: 6vw solid rgb(23, 23, 23); /* Blue */
     border-radius: 50%;
-    min-width: 30vw;
-    min-height: 30vw;
+    width: 30vw;
+    height: 30vw;
     animation: spin 2s linear infinite;
   }
-  
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .clockedOutText {
+      font-style: italic;
+      color:rgb(255, 110, 110);
+    font-size: 9vw;
+    margin-top: 13vw;
+    width: 90vw;
+    text-align: center;
+}
+.clockInButton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 255, 0);
+    outline: solid green 3vw;
+    color:rgb(0, 87, 0);
+    font-size: 0;
+    margin-top: 15vw;
+    width: 60vw;
+    height: 60vw;
+    border-radius: 30vw;
+    text-align: center;
+}
+
 
   /*/// displaying ////*/
 #displaying{
@@ -176,7 +200,7 @@
     box-shadow: 0px 7px 6px 0px #000000;
     display: flex;
     font-size: 7vw;
-    background-color:var(--alliance);;
+    background-color:orange;
     border-radius: calc(25vw/9.8);
     padding-left: calc(20vw/9.8);
     padding-right: calc(20vw/9.8);
@@ -254,7 +278,8 @@
     transition: .2s;
 }
 .selected {
-    background-color: var(--alliance);
+    background-color: orange;
+    /* background-color: var(--alliance); */
     color:rgb(0, 0, 0);
 }
 .checkbox {
@@ -328,6 +353,19 @@ html body {
     flex-direction: column;
     gap:0;
 }
+#offline{
+    z-index: 1000;
+    display: none;
+    min-height:20vw;
+    line-height: 20vw;
+    text-align: center;
+    font-size: 10vw;
+    color:white;
+    background-color: red;
+}
+#takenup{
+    display: none;
+}
 #page {
     display: flex;
     /* flex-flow: row nowrap; */
@@ -336,6 +374,7 @@ html body {
    
 }
 .surface {
+    z-index: 9999 !important;
     display:flex;
     flex-flow: column nowrap;
     justify-content: flex-start;

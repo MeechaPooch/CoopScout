@@ -23,32 +23,47 @@
     <div id="background"></div>
     <div id="screen">
      
-
+        <div id="offline">📶❎ offline!</div>
 
         <div class="screenInfo" id="screenInfo">
             | |
         </div>
         <div id="page">
+
             <div id="waiting" class="surface openingScreen">
                 <!-- <div id="welcome"> WELCOME<br> TO<br> COOP<br>SCOUT</div> -->
                 <div id="welcome"></div>
                 <img id="logo" src="https://avatars2.githubusercontent.com/u/36606639?v=4"/>
-                <div id="waitingText"> Waiting for Match...</div>
+               <div id="clockedin" style="display:flex; flex-direction: column; align-items: center;">
+                <div class="waitingText"> Waiting for Match...</div>
                 <div class="loader"></div>
                 <div class="frontButtons">
-                    <div class="frontButton">❌</div>
-                    <div class="frontButton">📝</div>
+                    <div onclick="setClockedIn(false)" class="frontButton">❌</div>
+                    <div class="frontButton">✍️</div>
                 </div>
+            </div>
+
+            <div id="clockedout" style="display:flex; flex-direction: column; align-items: center;">
+                <div class="clockedOutText"> Clocked Out.</div>
+                <div onclick="setClockedIn(true)" class="clockInButton"> <span style="font-size: 30vw;">⬆</span><span style="transform:translate(0,-6vw); font-size: 8vw;">clock in</span></div>
+           
+            </div>
+
+            <div id="takenup">
+                <div class="waitingText"> We have enough scouts for this match</div>
+
+            </div>
+
             </div>
 
             <div id="displaying" class="surface openingScreen">
               <div class="infoLabel firstInfoLabel">You're<br>Scouting:</div>
-              <div class="infoText">1540</div>
+              <div id="teamNumber" class="infoText">1540</div>
               <div class="infoName">
                   <span>"</span><span id="teamName" style="color:var(--alliance)">Flaming Chickens</span><span>"</span>
               </div>
               <div class="infoLabel">On The:</div>
-              <div class="infoAllianceName">BLUE</div>
+              <div id="allianceColor" class="infoAllianceName">BLUE</div>
               <div class="allianceWord">Alliance</div>
               <div class="swipeee">< < SWIPE to start! < <</div>
             </div>
@@ -157,10 +172,16 @@
             <textarea class="textnote"></textarea>
         <space></space>    
         </div>
+
+        <div class="surface">
+            <div class="clockedOutText">Yay! Thanks!</div>
+            <div onclick="submitScoutData()" class="clockInButton"> <span style="font-size: 30vw;">🌟</span><span style="transform:translate(0,-6vw); font-size: 8vw;">Submit</span></div>
+       
+        </div>
         </div>
     </div>
 </body>
+<script src="script.js"></script>
 <script src="state.js"></script>
 <script src="input.js"></script>
-<script src="script.js"></script>
 </html>

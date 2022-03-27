@@ -3,7 +3,7 @@ let screenInfo = document.getElementById('screenInfo')
 document.getElementById('welcome').innerHTML = 'CoopScout<br>'+new Date().getFullYear() 
 
 let labels = ['auto','teleop','endgame']
-let durations = ['15s','2m15s','30s']
+let durations = ['15s','45s','30s']
 function setPageLabel(index) {
     let label = labels[index]?.toUpperCase();
     let duration = durations[index]
@@ -33,11 +33,28 @@ document.querySelectorAll('.surface').forEach(surface=>surface.addEventListener(
 }))
 
 function setTransform(amm) {
-    swipePage.style.transform = `translate(${amm})`
+    let vwAmm = parseFloat(amm)
+    if(amm.includes('px')) {
+        vwAmm = 100 * parseFloat(amm) / window.innerWidth
+    }
+   
+  
+    if(pageIndex<1 && typeof STATE == 'object') { STATE.fillingout = true}
+    if(vwAmm < -300) {
+        swipePage.style.transform = `translate(-300vw)`
+    } else {
+        swipePage.style.transform = `translate(${amm})`
+    }
     if(parseFloat(amm) >= 0){
         screenInfo.style.transform = `translate(${amm})`
     } else {
-        screenInfo.style.transform = `translate(${0})`
+      
+
+        if(vwAmm < -200) {
+            screenInfo.style.transform = `translate(${200 + vwAmm}vw)`
+        } else {
+            screenInfo.style.transform = `translate(${0})`
+        }
     }
 }
 
@@ -109,6 +126,7 @@ document.addEventListener('touchend', (e) => {
         (pageIndex * window.innerWidth + pointerMoveX*3)/window.innerWidth
     ),pageIndex-1),pageIndex+1)
     if(pageIndex > 1) {pageIndex = 1}
+    if(pageIndex < -3) {pageIndex = -3}
 
     swipePage.style.transition = ".25s"
     screenInfo.style.transition = ".25s"

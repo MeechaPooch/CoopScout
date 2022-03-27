@@ -5,15 +5,19 @@ import { FileSave } from './filesave.js'
 import { TeamDB } from './teamdb.js'
 import { MatchDB } from './matchdb.js'
 import express from 'express'
+import cors from 'cors'
 import { Now } from './now.js'
 import { Config } from './config.js'
+import { TimeLord } from './timelord.js'
+FileSave.useDir('storage')
 
 
 let NOW = new Now()
 let CONFIG = new Config()
+let timelord = FileSave.load(TimeLord)
 Object.prototype.NOW = NOW
 Object.prototype.CONFIG = CONFIG
-FileSave.useDir('storage')
+Object.prototype.TIMELORD = timelord
 let assigner = FileSave.load(Assigner)
 let scoutdb = FileSave.load(Scoutdb)
 let teamdb = FileSave.load(TeamDB)
@@ -31,21 +35,27 @@ console.log()
 
 const app = express()
 const port = 3002
+app.use(cors('*'))
 
 
 
 // info: {teamNum, teamName, allianceColor, matchNum}
 // requester encodes their scoutId in url query
-app.get('/teamInfo',(req,res)=>{
+app.get('/assign',(req,res)=>{
     recalcNow()
     let scoutId = req.query.scoutId
     if(!scoutId) {res.send({err:'please encode scout id in url query'}); return;}
     if(NOW.status == 'active' && !assigner.getScoutAssignment(scoutId)) {res.send({active:true,err:'match is currently active'});return;}
     let scoutInfo = assigner.assignScout(scoutId,matchdb.getCurrentTeams())
-    if(!scoutInfo) {res.send({err:'all teams are already scouted'}); return;}
+    if(!scoutInfo) {res.send({code:'filled',err:'all teams are already scouted'}); return;}
     let matchInfo = matchdb.getTeamInfo(scoutInfo.teamId,NOW.match)
     let teamInfo = teamdb.getTeam(scoutInfo.teamId)
-    let retInfo = {color:matchInfo.color, number:teamInfo.team_number,name:teamInfo.nickname,match:NOW.match}
+    let retInfo = {
+        color:matchInfo.color,
+        number:teamInfo.team_number,
+        name:teamInfo.nickname,
+        match:NOW.match
+    }
     res.send(retInfo)
 })
 app.post('/leave',(req,res)=>{ // Todo: auto assigning

@@ -25,7 +25,7 @@ export class FileSave {
             } else {
                 ret = new constructor()
                 Object.entries(json).forEach(entry=>{
-                    ret[entry[0]] = entry[1]
+                    ret[entry[0]] = entry[1];
                 })
             }
         } catch(e) {
