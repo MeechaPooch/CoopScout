@@ -14,6 +14,8 @@ function setPageLabel(index) {
     let duration = durations[index]
     if(!label) {return}
 
+    document.getElementById(labels[index]).focus()
+
     if(index == 2) {
         screenInfo.style.fontSize = "8vw"
     }  else {
@@ -88,9 +90,6 @@ document.addEventListener('touchmove',(e)=>{
         setTransform(`${pageIndex*100}vw`)
         pointerMoveX = 0;
     } else {
-        document.querySelectorAll('.surface').forEach(surface=>{
-            surface.scrollTop = 0;
-            })
         // set anchors when first move happens, not just first touch (because animations may have changed)
        
         pointerMoveX = e.targetTouches[0].pageX - anchorX
