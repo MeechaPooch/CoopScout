@@ -10,9 +10,10 @@ import { Now } from './now.js'
 import { Config } from './config.js'
 import { TimeLord } from './timelord.js'
 import { SiteServer } from './siteserver.js'
+import { Sheets } from "./sheets.js";
+let sheets = new Sheets()
+
 FileSave.useDir('storage')
-
-
 let NOW = new Now()
 let CONFIG = new Config()
 let timelord = await FileSave.load(TimeLord)
@@ -36,6 +37,7 @@ assigner.priority = ['1540','2412']
 const app = express()
 const port = 3001
 app.use(cors('*'))
+app.use(express.json())
 let siteServer = new SiteServer()
 siteServer.bindApi(app)
 
@@ -64,6 +66,11 @@ app.post('/leave',(req,res)=>{ // Todo: auto assigning
     res.end()
 })
 app.post('/submit',(req,res)=>{
+    console.log('submitted!')
+    let formdata = req.body
+    console.log(formdata)
+    sheets.record(formdata)
+    let scoutId = req.query.scoutId
     res.end()
 })
 app.listen(port,()=>{console.log('api listening...')})

@@ -336,7 +336,7 @@ html body {
     margin:0;
 }
 #screen {
-
+    user-select: none;
 
     overscroll-behavior:contain;
     overflow-y: auto;

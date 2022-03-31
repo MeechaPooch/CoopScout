@@ -145,31 +145,31 @@
                 </div>
                 
                 
-            <label id="nodef" class="checkboxBox selected" for="auto-none"> 
+            <label id="nodef" data-id=0 class="checkboxBox selected" for="auto-none"> 
             No Defense</label>
             <br>
-            <label class="checkboxBox" for="vehicle1">Blocked Launchpad</label>
-            <label class="checkboxBox" for="vehicle1">Shoved Robots (Gracious-Professionally)</label>
+            <label class="checkboxBox" data-id=1 for="vehicle1">Blocked Launchpad</label>
+            <label class="checkboxBox" data-id=2 for="vehicle1">Shoved Robots (Gracious-Professionally)</label>
             <br>
-            <label class="checkboxBox" for="vehicle1">Stored Opponent's Balls in Indexer</label>
-            <label class="checkboxBox" for="vehicle1">Trapped/Pushed Balls Against Wall</label>
+            <label class="checkboxBox" data-id=3 for="vehicle1">Stored Opponent's Balls in Indexer</label>
+            <label class="checkboxBox" data-id=4 for="vehicle1">Trapped/Pushed Balls Against Wall</label>
             <space></space>
             </div>
 
 
             <div class="surface" id="endgame">
                 <div class="sectionTitle topTitle">Climing!</div>
-            <label class="checkboxBox exclusive" for="vehicle1">Not Attempted</label>
-            <label class="checkboxBox exclusive" for="vehicle1">Low Bar</label>
-            <label class="checkboxBox exclusive" for="vehicle1">Mid Bar</label>
-            <label class="checkboxBox exclusive" for="vehicle1">High Bar</label>
-            <label class="checkboxBox exclusive" for="vehicle1">Traversal Bar</label>
-            <label class="checkboxBox exclusive" for="vehicle1">Attempted But Fell :(</label>
+            <label id="noclimb" class="checkboxBox exclusive" data-id=0 for="vehicle1">Not Attempted</label>
+            <label class="checkboxBox exclusive" data-id=1 for="vehicle1">Low Bar</label>
+            <label class="checkboxBox exclusive" data-id=2 for="vehicle1">Mid Bar</label>
+            <label class="checkboxBox exclusive" data-id=3 for="vehicle1">High Bar</label>
+            <label class="checkboxBox exclusive" data-id=4 for="vehicle1">Traversal Bar</label>
+            <label class="checkboxBox exclusive" data-id=5 for="vehicle1">Attempted But Fell :(</label>
 
             <div class="sectionTitle">
                 Notes
             </div>
-            <textarea class="textnote"></textarea>
+            <textarea id="endnote" class="textnote"></textarea>
         <space></space>    
         </div>
 

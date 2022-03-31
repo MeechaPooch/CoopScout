@@ -125,6 +125,20 @@ async function queryScoutData(override) {
 }
 
 function submitScoutData() {
+    let formdata = getFormData()
+    formdata.timestamp = new Date().toLocaleString('en-us').replace(',','')
+    formdata.scoutId = SCOUT_INFO.id
+    formdata.matchNumber = TEAM_INFO.match
+    formdata.teamNumber = TEAM_INFO.number
+
+    fetch('/submit',{
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method:"POST",
+        body:JSON.stringify(formdata),
+    })
     STATE.fillingout = false;
     STATE.justSubmitted = TEAM_INFO.match
     localStorage.setItem('lastMatch',STATE.justSubmitted)
