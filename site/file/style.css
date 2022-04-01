@@ -49,6 +49,12 @@
     width: 90vw;
     text-align: center;
 }
+.waitingText2 {
+    font-size: 12vw;
+    margin-top: 10vw;
+    width: 90vw;
+    text-align: center;
+}
 .loader {
     margin-top: 10vw;
     border: 6vw solid #f3f3f3; /* Light grey */
