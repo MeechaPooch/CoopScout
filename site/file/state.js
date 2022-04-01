@@ -24,7 +24,7 @@ SCOUT_INFO = {
 }
 function getYaName() {
     SCOUT_INFO.id = localStorage.getItem('scoutId')
-    if(!SCOUT_INFO.id) {
+    if(!SCOUT_INFO.id || SCOUT_INFO.id == 'null') {
         SCOUT_INFO.id = new String(prompt('Enter your name (we will use it as your scout id)')).toLowerCase().split(' ').join('')
         if(SCOUT_INFO.id.length < 2) {getYaName(); return;}
         localStorage.setItem('scoutId',SCOUT_INFO.id) 
