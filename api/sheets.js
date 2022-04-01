@@ -31,12 +31,13 @@ export class Sheets {
     static exampleData = exampleData
 
     alreadyAdded = {}
+    errored = []
 
     record(data) {
         data.defendIndexes = data.defendIndexes.toString()
         if(this.recordAndTest(data)) {return false} // if youve already recorded this, dont record again
         return sheet.addRow(data)
-            .catch(e=>{console.log(e)})
+            .catch(e=>{console.log(e); this.errored.push(data)})
     }
 
     recordAndTest(data) {
