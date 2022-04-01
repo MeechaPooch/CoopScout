@@ -11,11 +11,12 @@ import { Config } from './config.js'
 import { TimeLord } from './timelord.js'
 import { SiteServer } from './siteserver.js'
 import { Sheets } from "./sheets.js";
-let sheets = new Sheets()
+
 
 FileSave.useDir('storage')
 let NOW = new Now()
 let CONFIG = new Config()
+let sheets = await FileSave.load(Sheets)
 let timelord = await FileSave.load(TimeLord)
 Object.prototype.NOW = NOW
 Object.prototype.CONFIG = CONFIG
@@ -66,11 +67,23 @@ app.post('/leave',(req,res)=>{ // Todo: auto assigning
     res.end()
 })
 app.post('/submit',(req,res)=>{
-    console.log('submitted!')
     let formdata = req.body
     console.log(formdata)
     sheets.record(formdata)
     let scoutId = req.query.scoutId
     res.end()
+})
+
+let submitGetRoute = '/submit/:' + Object.keys(Sheets.exampleData).sort().join('/:')
+app.get(submitGetRoute,(req,res)=>{
+    let formdata = {}
+    Object.entries(req.params).forEach(entry=>{
+        formdata[entry[0]] = JSON.parse(decodeURIComponent(entry[1]))
+    })
+    console.log(formdata)
+    let recorded = sheets.record(formdata)
+    let scoutId = req.query.scoutId
+
+    res.sendFile(recorded ? 'recorded.html' : 'duplicate.html',{root:'../site'})
 })
 app.listen(port,()=>{console.log('api listening...')})

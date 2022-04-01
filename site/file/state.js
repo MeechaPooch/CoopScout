@@ -31,7 +31,9 @@ function getYaName() {
     }
 }
 getYaName()
-
+setWaitingScreen('waiting')
+setOffline(false)
+setQRCode(false)
 
 TEAM_INFO = {
     color:'blue',
@@ -77,7 +79,6 @@ function setWaitingScreen(screen) {
         document.getElementById('takenup').style.display = "none"
     }
 }
-setWaitingScreen('waiting')
 
 OFFLINE = false;
 function setOffline(isOffline) {
@@ -88,7 +89,6 @@ function setOffline(isOffline) {
         document.getElementById('offline').style.display = 'none'
     }
 }
-setOffline(false)
 
 function displayInfo() {
     document.documentElement.style.setProperty('--alliance', 'var(--' + TEAM_INFO.color + ")");
@@ -124,29 +124,62 @@ async function queryScoutData(override) {
     }
 }
 
-function submitScoutData() {
+
+// QR CODE 
+let qrWidth = window.innerWidth * 80/100
+var qrcode = new QRCode("qrcode",{
+    width:qrWidth,
+    height:qrWidth,
+});
+function setQRCode(data) {
+    if(data) {
+        urlData = Object.entries(data).sort((a,b)=>(a[0].localeCompare(b[0]))).map(entry=>encodeURIComponent(JSON.stringify(entry[1]))).join('/')
+        alert(urlData)
+        qrcode.makeCode(`http://spore.us.to:3001/submit/${urlData}`)
+        // qrcode.makeCode(`http://spore.us.to:3001/submit?data=${encodeURIComponent(JSON.stringify(data))}`)
+        document.getElementById('qrcodeContainer').style.display = 'inline'
+    } else {
+        document.getElementById('qrcodeContainer').style.display = 'none'
+    }
+}
+
+function reset() {
+    setQRCode(false)
+    resetFormData()
+    STATE.fillingout = false;
+    STATE.justSubmitted = TEAM_INFO.match
+    localStorage.setItem('lastMatch',STATE.justSubmitted)
+    setWaiting(true)
+    setWaitingScreen('waiting')
+}
+
+async function submitScoutData() {
     let formdata = getFormData()
     formdata.timestamp = new Date().toLocaleString('en-us').replace(',','')
     formdata.scoutId = SCOUT_INFO.id
     formdata.matchNumber = TEAM_INFO.match
     formdata.teamNumber = TEAM_INFO.number
 
-    fetch('/submit',{
+    try{
+        await fetch('/submit',{
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         method:"POST",
         body:JSON.stringify(formdata),
-    })
-    STATE.fillingout = false;
-    STATE.justSubmitted = TEAM_INFO.match
-    localStorage.setItem('lastMatch',STATE.justSubmitted)
-    setWaiting(true)
+    })} catch(e) {
+        setQRCode(formdata)
+        return;
+    }
+    reset()
 }
 
 setInterval(queryScoutData,5 * 1000)
 
 setWaiting(true)
 setClockedIn(false)
+
+// setWaiting(false)
+// setClockedIn(true)
 

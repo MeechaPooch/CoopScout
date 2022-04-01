@@ -27,8 +27,22 @@ sheet.setHeaderRow(Object.keys(exampleData),0)
 console.log('google sheets loaded.')
 
 export class Sheets {
+    static saveTo = 'sheets.json'
+    static exampleData = exampleData
+
+    alreadyAdded = {}
+
     record(data) {
         data.defendIndexes = data.defendIndexes.toString()
-        sheet.addRow(data)
+        if(this.recordAndTest(data)) {return false} // if youve already recorded this, dont record again
+        return sheet.addRow(data)
+            .catch(e=>{console.log(e)})
+    }
+
+    recordAndTest(data) {
+        let rep = "" + data.scoutId + data.teamNumber + data.matchNumber + data.note?.substr(0,5)
+        if(this.alreadyAdded[rep]) {return true}
+        this.alreadyAdded[rep] = true
+        return false;
     }
 }

@@ -31,7 +31,7 @@
         <div id="page">
 
             <div id="waiting" class="surface openingScreen">
-                <div id="welcome"> CoopScout<br>2022.01</div>
+                <div id="welcome"> CoopScout<br>2022</div>
                 <!-- <div id="welcome"></div> -->
                 <img id="logo" src="https://avatars2.githubusercontent.com/u/36606639?v=4"/>
                <div id="clockedin" style="display:flex; flex-direction: column; align-items: center;">
@@ -176,11 +176,22 @@
         <div class="surface">
             <div class="clockedOutText">Yay! Thanks!</div>
             <div onclick="submitScoutData()" class="clockInButton"> <span style="font-size: 30vw;">🌟</span><span style="transform:translate(0,-6vw); font-size: 8vw;">Submit</span></div>
-       
+            <div id="qrcodeContainer">
+                <span class="qrText">No Connection!</span>
+                <span class="qrSubText">Scan with another device:</span>
+                <div id="qrcode"></div>
+                <div style="width:80vw; display:flex; flex-direction: row; gap:2vw">
+                    <div class="qrButton" onclick="submitScoutData()"><span>Retry</span></div>
+                    <div class="qrButton" onclick="reset()"><span>Done</span></div>
+                
+                </div>
+
+            </div>
         </div>
         </div>
     </div>
 </body>
+<script src="file/qrcode.min.js"></script>
 <script src="file/script.js"></script>
 <script src="file/state.js"></script>
 <script src="file/input.js"></script>

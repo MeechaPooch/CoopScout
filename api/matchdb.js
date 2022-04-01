@@ -61,6 +61,6 @@ export class MatchDB {
             json.forEach(match=>{
                 this.matches[match.match_number] = match
             })
-        }))
+        })).catch(e=>{console.log(e)})
     }
 }

@@ -25,6 +25,6 @@ export class TeamDB {
             json.forEach(team=>{
                 this.teams[team.team_number] = team;
             })
-        }))
+        })).catch(e=>{console.log(e)})
     }
 }

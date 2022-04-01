@@ -9,7 +9,9 @@ const defaultData = {
     note:null,
 }
 data = {}
-function reset() {
+resetFormData()
+
+function resetFormData() {
     data = JSON.parse(JSON.stringify(defaultData))
     document.querySelectorAll('.checkboxBox').forEach(box=>{
         box.classList.remove('selected')
@@ -19,6 +21,7 @@ function reset() {
     document.querySelectorAll('.inlineNum').forEach(num=>{
         num.innerHTML = '0'
     })
+    document.getElementById('endnote').value = ''
 }
 function getFormData() {
     data.note = document.getElementById('endnote').value
@@ -35,7 +38,6 @@ function getFormData() {
     })
     return data;
 }
-reset()
 
 
 ////// COUNTER //////
