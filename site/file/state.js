@@ -135,7 +135,7 @@ function setQRCode(data) {
     if(data) {
         urlData = Object.entries(data).sort((a,b)=>(a[0].localeCompare(b[0]))).map(entry=>encodeURIComponent(JSON.stringify(entry[1]))).join('/')
         qrcode.makeCode(`http://spore.us.to:3001/submit/${urlData}`)
-        // qrcode.makeCode(`http://spore.us.to:3001/submit?data=${encodeURIComponent(JSON.stringify(data))}`)
+        // qrcode.makeCode(`https://www.youtube.com/watch?v=dQw4w9WgXcQ`)
         document.getElementById('qrcodeContainer').style.display = 'inline'
     } else {
         document.getElementById('qrcodeContainer').style.display = 'none'
