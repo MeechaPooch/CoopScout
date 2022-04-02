@@ -2,6 +2,7 @@
 :root{
     --red:red;
     --blue:rgb(0, 119, 255);
+    --na:rgb(182, 55, 255);
     --alliance: var(--blue);
 }
 
@@ -33,6 +34,8 @@
     gap:15vw;
     bottom:10vw;
     position: absolute;
+    align-items: center;
+    font-size: 5vw;
 }
 .frontButton{
     text-align: center;
@@ -154,6 +157,44 @@
     margin-bottom: 2vw;
     margin-top: 20vw;
 }
+.manualInput{
+    height:1.7ch;
+    text-align: center;
+    font-size: 15vw;
+    background: none;
+    border: solid rgba(255, 255, 255, 0.9) 1.6vw;
+    border-radius: 3vw;
+    color:white;
+    margin-bottom: 10vw;
+
+}
+.manualInput:focus{
+    outline: none !important;
+    border: solid rgb(0, 255, 179) 1.6vw;
+    /* border:1px solid red; */
+    /* box-shadow: 0 0 5vw #ff9900; */
+}
+.manualInfoTitle{
+    margin-bottom: 5vw;
+    font-size: 10vw;
+    text-decoration: underline;
+    /* background: rgba(0, 255, 179, 0.5); */
+    font-style: italic;
+    padding: 2vw;
+    border-radius: 3vw;
+}
+.infoButton{
+    background: rgba(255, 0, 0, 0.9);
+    border-radius: 3vw;
+    height:15vw;
+    width:40vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
 .firstInfoLabel{
     margin-top: 0;
 }

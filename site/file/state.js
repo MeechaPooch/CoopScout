@@ -46,6 +46,7 @@ function setWaiting(isWaiting) {
     // if(STATE.fillingout) {return}
     STATE.waiting = isWaiting;
     if(isWaiting) {
+        STATE.fillingout = false;
         document.getElementById('waiting').style.display = "flex"
         document.getElementById('displaying').style.display = "none"
         pageIndex = 1;
@@ -56,6 +57,17 @@ function setWaiting(isWaiting) {
 
     }
 }
+function setInfoType(screenName) {
+    if(screenName == 'fetched') {
+        document.getElementById('fetched').style.display = "flex"
+        document.getElementById('manual').style.display = "none"
+    } else if(screenName == 'manual') {
+        STATE.fillingout=true;
+        document.getElementById('fetched').style.display = "none"
+        document.getElementById('manual').style.display = "flex"
+    }
+}
+setInfoType('fetched')
 function setClockedIn(isIn) {
     if(isIn) {
         document.getElementById('clockedin').style.display = "flex"
@@ -95,6 +107,12 @@ function displayInfo() {
     document.getElementById('teamNumber').innerText = TEAM_INFO.number
     document.getElementById('teamName').innerText = TEAM_INFO.name
     document.getElementById('allianceColor').innerText = TEAM_INFO.color.toUpperCase()
+}
+function manualInfo() {
+    setInfoType('manual');
+    setWaiting(false);
+    document.documentElement.style.setProperty('--alliance', 'var(--na)');
+    document.getElementById('matchNumInput').value = parseInt(STATE.justSubmitted) + 1
 }
 
 async function queryScoutData(override) {
@@ -181,4 +199,3 @@ setClockedIn(false)
 
 // setWaiting(false)
 // setClockedIn(true)
-

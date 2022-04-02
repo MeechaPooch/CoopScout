@@ -39,7 +39,7 @@
                 <div class="loader"></div>
                 <div class="frontButtons">
                     <div onclick="setClockedIn(false)" class="frontButton">❌</div>
-                    <div class="frontButton">✍️</div>
+                    <div onclick="manualInfo()" class="frontButton">✍️</div>
                 </div>
             </div>
 
@@ -61,6 +61,7 @@
             </div>
 
             <div id="displaying" class="surface openingScreen">
+                <div id="fetched" class="surface">
               <div class="infoLabel firstInfoLabel">You're<br>Scouting:</div>
               <div id="teamNumber" class="infoText">1540</div>
               <div class="infoName">
@@ -70,7 +71,29 @@
               <div id="allianceColor" class="infoAllianceName">BLUE</div>
               <div class="allianceWord">Alliance</div>
               <div class="swipeee">< < SWIPE to start! < <</div>
+
+              </div>
+
+              <div id="manual" class="surface">
+                <div class="manualInfoTitle">Manual Info:</div>
+                <div class="infoLabel firstInfoLabel">Match #</div>
+                <input id="matchNumInput" onchange="TEAM_INFO.match=parseInt(this.value)" style="width:3ch;" type="number" class="manualInput" onKeyPress="if(this.value.length>=3) return false;"></input>
+                <div class="infoLabel firstInfoLabel">Team #</div>
+                <input onkeyup="TEAM_INFO.number = parseInt(this.value)" style="width:4.1ch;" type="number" class="manualInput" onKeyPress="if(this.value.length>=4) return false;"></input>
+                <div class="frontButtons">
+                <div class="infoButton" onclick="setInfoType('fetched');setWaitingScreen('waiting');setWaiting(true)"><span>✖ BACK</span></div>
+                <span style="transform:translate(-4vw); color:rgba(255, 255, 255,0.7)">or swipe ></span>
+                <!-- <div onclick="setClockedIn(false)" class="frontButton">❌</div> -->
+                    <!-- <div class="frontButton">✍️</div> -->
+                </div>
+              </div>
+
+
+
             </div>
+
+
+           
 
             <div class="surface" id="auto">
               
