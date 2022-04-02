@@ -168,6 +168,7 @@ function reset() {
     localStorage.setItem('lastMatch',STATE.justSubmitted)
     setWaiting(true)
     setWaitingScreen('waiting')
+    setInfoType('fetched')
 }
 
 async function submitScoutData() {
