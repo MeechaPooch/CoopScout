@@ -77,9 +77,9 @@
               <div id="manual" class="surface">
                 <div class="manualInfoTitle">Manual Info:</div>
                 <div class="infoLabel firstInfoLabel">Match #</div>
-                <input id="matchNumInput" onchange="TEAM_INFO.match=parseInt(this.value)" style="width:3ch;" type="number" class="manualInput" onKeyPress="if(this.value.length>=3) return false;"></input>
+                <input id="matchNumInput" pattern="[0-9]*" onchange="TEAM_INFO.match=parseInt(this.value)" style="width:3ch;" type="number" class="manualInput" onKeyPress="if(this.value.length>=3) return false;"></input>
                 <div class="infoLabel firstInfoLabel">Team #</div>
-                <input onkeyup="TEAM_INFO.number = parseInt(this.value)" style="width:4.1ch;" type="number" class="manualInput" onKeyPress="if(this.value.length>=4) return false;"></input>
+                <input onkeyup="TEAM_INFO.number = parseInt(this.value)" pattern="[0-9]*" style="width:4.1ch;" type="number" class="manualInput" onKeyPress="if(this.value.length>=4) return false;"></input>
                 <div class="frontButtons">
                 <div class="infoButton" onclick="setInfoType('fetched');setWaitingScreen('waiting');setWaiting(true)"><span>✖ BACK</span></div>
                 <span style="transform:translate(-4vw); color:rgba(255, 255, 255,0.7)">or swipe ></span>
