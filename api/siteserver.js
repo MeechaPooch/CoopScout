@@ -11,6 +11,9 @@ export class SiteServer {
         app.get('/file/:resource', (req, res) => {
             res.sendFile(req.params.resource,{root:'../site/file'})
         })
+        app.get('/img/:resource', (req, res) => {
+            res.sendFile(req.params.resource,{root:'../site/img'})
+        })
         app.get('/file/fonts/gotham/:resource', (req, res) => {
             res.sendFile(req.params.resource,{root:'../site/file/fonts/gotham'})
         })
