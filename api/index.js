@@ -62,6 +62,29 @@ app.get('/assign',(req,res)=>{
     }
     res.send(retInfo)
 })
+app.get('/qrAssign',(req,res)=>{
+    recalcNow()
+    let scoutId = req.query.scoutId
+    if(!scoutId) {res.send({err:'please encode scout id in url query'}); return;}
+    if(NOW.status == 'active' && !assigner.getScoutAssignment(scoutId)) {res.send({active:true,err:'match is currently active'});return;}
+    let scoutInfo = assigner.assignScout(scoutId,matchdb.getCurrentTeams())
+    if(!scoutInfo) {res.send({code:'filled',err:'all teams are already scouted'}); return;}
+    let matchInfo = matchdb.getTeamInfo(scoutInfo.teamId,NOW.match)
+    let teamInfo = teamdb.getTeam(scoutInfo.teamId)
+    let retInfo = {
+        color:matchInfo.color,
+        number:teamInfo.team_number,
+        name:teamInfo.nickname,
+        match:NOW.match
+    }
+    let html = FileSave.readFile('./../site/assignment.html').toString()
+    html = html.replace('$[color]',retInfo.color)
+    html = html.replace('$[teamnumber]',retInfo.number)
+    html = html.replace('$[matchnumber]',retInfo.match)
+    res.send(html)
+})
+
+
 app.post('/leave',(req,res)=>{ // Todo: auto assigning
     let scoutId = req.query.scoutId
     res.end()
@@ -80,6 +103,10 @@ app.get(submitGetRoute,(req,res)=>{
     Object.entries(req.params).forEach(entry=>{
         formdata[entry[0]] = JSON.parse(decodeURIComponent(entry[1]))
     })
+    if(!formdata.teamNumber) {
+        formdata.teamNumber = assigner.getScoutAssignment(formdata.scoutId).teamId
+        console.log('TEAM NUMBER RETRIEVED!')
+    }
     console.log(formdata)
     let recorded = sheets.record(formdata)
     let scoutId = req.query.scoutId

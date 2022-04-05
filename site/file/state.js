@@ -5,6 +5,7 @@ STATE = {
     fillingout: false,
     clockedIn: true,
     justSubmitted: localStorage.getItem('lastMatch') ? localStorage.getItem('lastMatch') : -1, // match number
+    manualInfo: false,
 }
 
 function setCookie(cname, cvalue, exdays) {
@@ -62,9 +63,11 @@ function setWaiting(isWaiting) {
 }
 function setInfoType(screenName) {
     if(screenName == 'fetched') {
+        STATE.manualInfo = false
         document.getElementById('fetched').style.display = "flex"
         document.getElementById('manual').style.display = "none"
     } else if(screenName == 'manual') {
+        STATE.manualInfo = true;
         STATE.fillingout=true;
         document.getElementById('fetched').style.display = "none"
         document.getElementById('manual').style.display = "flex"
@@ -112,10 +115,16 @@ function displayInfo() {
     document.getElementById('allianceColor').innerText = TEAM_INFO.color.toUpperCase()
 }
 function manualInfo() {
+    TEAM_INFO.number = null;
     setInfoType('manual');
     setWaiting(false);
     document.documentElement.style.setProperty('--alliance', 'var(--na)');
-    document.getElementById('matchNumInput').value = parseInt(STATE.justSubmitted) + 1
+    
+    TEAM_INFO.match = parseInt(STATE.justSubmitted) + 1
+    document.getElementById('matchNumInput').value = TEAM_INFO.match
+    
+    assignQr.makeCode(`https://spore.us.to:3001/qrAssign?scoutId=${SCOUT_INFO.id}`)
+    console.log('bro')
 }
 
 async function queryScoutData(override) {
@@ -149,6 +158,10 @@ async function queryScoutData(override) {
 // QR CODE 
 let qrWidth = window.innerWidth * 80/100
 var qrcode = new QRCode("qrcode",{
+    width:qrWidth,
+    height:qrWidth,
+});
+var assignQr = new QRCode("assignQR",{
     width:qrWidth,
     height:qrWidth,
 });

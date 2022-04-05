@@ -3,6 +3,13 @@ import fs from 'fs'
 function sleep(millis) {return new Promise(res=>setTimeout(res,millis))}
 
 export class FileSave {
+    // unrelated static file reader
+    static readFile(path) {
+        return fs.readFileSync(path)
+    }
+
+
+
     static dir = '.'
     static interval = 10
     static useDir(dir) {

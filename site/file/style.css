@@ -161,28 +161,59 @@
     height:1.7ch;
     text-align: center;
     font-size: 15vw;
-    background: none;
+    background: rgba(255, 255, 255, 0.329);
     border: solid rgba(255, 255, 255, 0.9) 1.6vw;
     border-radius: 3vw;
     color:white;
     margin-bottom: 10vw;
-
+}
+.numberInputButton{
+    height:13vw;
+    width:13vw;
+    font-size: 8vw;
+    border: solid rgba(255, 255, 255, 0.9) 1.6vw;
+    border-radius: 3vw;
+    color:white;
+}
+.manualInputTitle{
+    font-size: 6vw;
+    color:white;
+    font-style:italic;
+    margin-top: 5vw;
+    margin-bottom: 2vw;
 }
 .manualInput:focus{
     outline: none !important;
-    border: solid rgb(0, 255, 179) 1.6vw;
-    /* border:1px solid red; */
-    /* box-shadow: 0 0 5vw #ff9900; */
+    border: solid rgb(255, 0, 208) 1.6vw;
 }
 .manualInfoTitle{
     margin-bottom: 5vw;
     font-size: 10vw;
+    text-decoration: underline;
+    font-style: italic;
+    padding: 2vw;
+    border-radius: 3vw;
+}
+.manualQRTitle{
+    margin-bottom: 5vw;
+    font-size: 7vw;
     text-decoration: underline;
     /* background: rgba(0, 255, 179, 0.5); */
     font-style: italic;
     padding: 2vw;
     border-radius: 3vw;
 }
+#assignQR{
+    min-width:80vw;
+    min-height:80vw;
+}
+.numberSelectContainer{
+    display: flex;
+    flex-direction: row;
+    gap:3vw;
+    align-items: center;
+}
+
 .infoButton{
     background: rgba(255, 0, 0, 0.9);
     border-radius: 3vw;

@@ -74,7 +74,7 @@
 
               </div>
 
-              <div id="manual" class="surface">
+              <!-- <div id="manual" class="surface">
                 <div class="manualInfoTitle">Manual Info:</div>
                 <div class="infoLabel firstInfoLabel">Match #</div>
                 <input id="matchNumInput" pattern="[0-9]*" onchange="TEAM_INFO.match=parseInt(this.value)" style="width:3ch;" type="number" class="manualInput" onKeyPress="if(this.value.length>=3) return false;"></input>
@@ -83,9 +83,25 @@
                 <div class="frontButtons">
                 <div class="infoButton" onclick="setInfoType('fetched');setWaitingScreen('waiting');setWaiting(true)"><span>✖ BACK</span></div>
                 <span style="transform:translate(-4vw); color:rgba(255, 255, 255,0.7)">or swipe ></span>
-                <!-- <div onclick="setClockedIn(false)" class="frontButton">❌</div> -->
-                    <!-- <div class="frontButton">✍️</div> -->
                 </div>
+               </div> -->
+
+              <div id="manual" class="surface">
+                <div class="manualQRTitle">Offline Mode.<br>Scan for Assignment:</div>
+                <div id="assignQR"></div>
+                <div class="manualInputTitle">Input Match Number:</div>
+
+                <div class="numberSelectContainer">
+                    <div class="numberInputButton" onclick="TEAM_INFO.match -= 1; document.getElementById('matchNumInput').value = TEAM_INFO.match">-</div>
+                    <input id="matchNumInput" class="manualInput" pattern="[0-9]*" onchange="TEAM_INFO.match=parseInt(this.value)" style="width:3ch;" type="number" class="manualInput" onKeyPress="if(this.value.length>=3) return false;" style="width:3ch"></input>
+                    <div class="numberInputButton" onclick="TEAM_INFO.match += 1; document.getElementById('matchNumInput').value = TEAM_INFO.match">+</div>
+                </div>
+
+                <div class="frontButtons">
+                    <div onclick="setInfoType('fetched');setWaitingScreen('waiting');setWaiting(true)" class="frontButton">⬅️</div>
+                    <!-- <div onclick="manualInfo()" class="frontButton">✍️</div> -->
+                </div>
+                
               </div>
 
 
