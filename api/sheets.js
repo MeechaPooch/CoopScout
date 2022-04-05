@@ -63,7 +63,7 @@ export class Priority{
 
     async refreshPriority(){
         let rows = await prioritySheet.getRows()
-        this.priority = rows.map(row=>row.teamNum).filter(teamNum=>teamNum)
+        this.priority = rows.map(row=>parseInt(row.teamNum).toString()).filter(teamNum=>teamNum)
         return this.priority
     }
     getPriorityList() {
