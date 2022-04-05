@@ -21,7 +21,6 @@ getScoutAssignment(scoutId) {
 }
 
 assignScout(scoutId, teams) {
-    console.log(this.priority)
     let priority = this.priority;
     // check if scout id is already assigned
     let assignment = this.getScoutAssignment(scoutId)
