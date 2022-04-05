@@ -57,6 +57,7 @@ export class Priority{
     static saveTo='priority.json'
 
     constructor() {
+        this.refreshPriority()
     }
 
     priority=null
@@ -70,4 +71,3 @@ export class Priority{
         return this.priority;
     }
 }
-new Priority().refreshPriority()
