@@ -123,7 +123,7 @@ function manualInfo() {
     TEAM_INFO.match = parseInt(STATE.justSubmitted) + 1
     document.getElementById('matchNumInput').value = TEAM_INFO.match
     
-    assignQr.makeCode(`https://spore.us.to:3001/qrAssign?scoutId=${SCOUT_INFO.id}`)
+    assignQr.makeCode(`http://spore.us.to:3001/qrAssign?scoutId=${SCOUT_INFO.id}`)
     console.log('bro')
 }
 
