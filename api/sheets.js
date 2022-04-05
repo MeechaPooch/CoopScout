@@ -21,9 +21,14 @@ let exampleData = {
 
 const doc = await new GoogleSpreadsheet(env.sheet_id)
 await doc.useServiceAccountAuth(google_client_secret)
-let info = await doc.loadInfo()
+await doc.loadInfo()
+
 let sheet = doc.sheetsByTitle['coopscout']
 sheet.setHeaderRow(Object.keys(exampleData),0)
+
+let prioritySheet = doc.sheetsByTitle['priorityList']
+prioritySheet.setHeaderRow(['teamNum','teamName'],0)
+
 console.log('google sheets loaded.')
 
 export class Sheets {
@@ -47,3 +52,22 @@ export class Sheets {
         return false;
     }
 }
+
+export class Priority{
+    static saveTo='priority.json'
+
+    constructor() {
+    }
+
+    priority=null
+
+    async refreshPriority(){
+        let rows = await prioritySheet.getRows()
+        this.priority = rows.map(row=>row.teamNum).filter(teamNum=>teamNum)
+        return this.priority
+    }
+    getPriorityList() {
+        return this.priority;
+    }
+}
+new Priority().refreshPriority()

@@ -21,6 +21,7 @@ getScoutAssignment(scoutId) {
 }
 
 assignScout(scoutId, teams) {
+    console.log(this.priority)
     let priority = this.priority;
     // check if scout id is already assigned
     let assignment = this.getScoutAssignment(scoutId)
@@ -29,7 +30,14 @@ assignScout(scoutId, teams) {
     // remove teams that are already assigned list
     teams = teams.filter(team=>!this.getAssignments().find(pairing=>pairing.teamId == team));
     // order teams array by hierarchy
-    teams.sort((a,b)=>(priority.indexOf(a) - priority.indexOf(b)))
+    teams.sort((a,b)=>{
+        let aIndex = priority.indexOf(a)
+        let bIndex = priority.indexOf(b)
+        if(aIndex==-1 && bIndex==-1) {return 0}
+        if(aIndex==-1) {return 1}
+        if(bIndex==-1) {return -1}
+        return aIndex - bIndex
+    })
     // handle if there are no more teams left
     if(teams.length == 0) { return null }
     // record assignment and return

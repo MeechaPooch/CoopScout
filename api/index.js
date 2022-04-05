@@ -10,13 +10,14 @@ import { Now } from './now.js'
 import { Config } from './config.js'
 import { TimeLord } from './timelord.js'
 import { SiteServer } from './siteserver.js'
-import { Sheets } from "./sheets.js";
+import { Sheets, Priority } from "./sheets.js";
 
 
 FileSave.useDir('storage')
 let NOW = new Now()
 let CONFIG = new Config()
 let sheets = await FileSave.load(Sheets)
+let priority = await FileSave.load(Priority)
 let timelord = await FileSave.load(TimeLord)
 Object.prototype.NOW = NOW
 Object.prototype.CONFIG = CONFIG
@@ -33,7 +34,9 @@ function recalcNow() {
 }
 recalcNow()
 
-assigner.priority = ['1540','2412']
+// Periodically update priority list
+setInterval(async ()=>{assigner.priority = await priority.refreshPriority()},10000);
+
 
 const app = express()
 const port = 3001
