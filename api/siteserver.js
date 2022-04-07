@@ -17,5 +17,11 @@ export class SiteServer {
         app.get('/file/fonts/gotham/:resource', (req, res) => {
             res.sendFile(req.params.resource,{root:'../site/file/fonts/gotham'})
         })
+
+
+        /// Admin
+        app.get('/admin/:resource', (req, res) => {
+            res.sendFile(req.params.resource,{root:'../admin'})
+        })
     }
 }
