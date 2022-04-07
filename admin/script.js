@@ -1,6 +1,6 @@
 function getBody() {
     let ret = {}
-    ret.timeOverridden = document.querySelector('#override').checked
+    ret.override = document.querySelector('#override').checked
     ret.match = parseInt(document.querySelector('#match').value);
     ret.status = document.querySelector('#waiting').checked ? "waiting" : "active";
     ret.robotsOverride =  document.querySelector('#robotoverride').checked;
