@@ -44,6 +44,7 @@ app.use(cors('*'))
 app.use(express.json())
 let siteServer = new SiteServer()
 siteServer.bindApi(app)
+timelord.bindApi(app)
 
 
 // info: {teamNum, teamName, allianceColor, matchNum}
