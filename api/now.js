@@ -1,5 +1,5 @@
 export class Now {
     year = '2022'
-    event = 'orsal'
+    event = 'pncmp'
     match = 2
 }
