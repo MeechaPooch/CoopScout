@@ -43,6 +43,15 @@ export class MatchDB {
     }
 
     getMatch(matchNum) {
+        if(this.TIMELORD.robotsOverridden) {
+            //match.alliances.blue.team_keys
+            return {
+                alliances:{
+                    blue:this.TIMELORD.blue.map(name=>'frc'+name),
+                    red:this.TIMELORD.red.map(name=>'frc'+name),
+                }
+            }
+        }
         return this.matches[matchNum]
     }
 
