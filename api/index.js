@@ -29,8 +29,13 @@ let matchdb = await FileSave.load(MatchDB)
 FileSave.startSaving(1)
 
 function recalcNow() {
-    NOW.match = matchdb.getCurrentMatch().match.match_number
-    NOW.status = matchdb.getCurrentMatch().status
+    if(timelord.timeOverridden) {
+        NOW.match = timelord.match
+        NOW.status = timelord.status
+    } else {
+        NOW.match = matchdb.getCurrentMatch().match.match_number
+        NOW.status = matchdb.getCurrentMatch().status
+    }
 }
 recalcNow()
 
