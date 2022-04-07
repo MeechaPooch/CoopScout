@@ -11,6 +11,7 @@ export class TimeLord {
 
     bindApi(app) {
         app.put('/timelord',(req,res)=>{
+            console.log(req.body)
             this.timeOverridden = req.body.override;
             this.match = req.body.match;
             this.status = req.body.status;
