@@ -63,9 +63,14 @@ export class Priority{
     priority=null
 
     async refreshPriority(){
-        let rows = await prioritySheet.getRows()
-        this.priority = rows.map(row=>parseInt(row.teamNum).toString()).filter(teamNum=>teamNum)
-        return this.priority
+        try{
+            let rows = await prioritySheet.getRows()
+            this.priority = rows.map(row=>parseInt(row.teamNum).toString()).filter(teamNum=>teamNum)
+            return this.priority
+        } catch(e){
+            console.log('google sheets error!')
+            return this.priority;
+        }
     }
     getPriorityList() {
         return this.priority;
