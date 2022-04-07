@@ -47,8 +47,12 @@ export class MatchDB {
             //match.alliances.blue.team_keys
             return {
                 alliances:{
-                    blue:this.TIMELORD.blue.map(name=>'frc'+name),
-                    red:this.TIMELORD.red.map(name=>'frc'+name),
+                    blue:{
+                        team_keys:this.TIMELORD.blue.map(name=>'frc'+name),
+                    },
+                    red:{
+                        team_keys:this.TIMELORD.red.map(name=>'frc'+name),
+                    },
                 }
             }
         }
