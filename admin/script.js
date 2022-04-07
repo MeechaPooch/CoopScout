@@ -14,5 +14,6 @@ function sendRequest() {
     fetch('http://spore.us.to:3001/timelord',{
         method:'put',
         body:JSON.stringify(body),
+        'Content-Type': 'application/json'
     })
 }
