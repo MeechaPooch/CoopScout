@@ -26,6 +26,10 @@ assignScout(scoutId, teams) {
     let assignment = this.getScoutAssignment(scoutId)
     if(assignment) {return assignment}
 
+    // REMOVE THIS! RANDOM ASSIGN FOR DEMO
+    assignment = {teamId:teams[Math.floor(Math.random()*6)],scoutId}
+    this.getAssignments().push(assignment)
+
     // remove teams that are already assigned list
     teams = teams.filter(team=>!this.getAssignments().find(pairing=>pairing.teamId == team));
     // order teams array by hierarchy
