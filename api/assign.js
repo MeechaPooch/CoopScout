@@ -27,8 +27,8 @@ assignScout(scoutId, teams) {
     if(assignment) {return assignment}
 
     // REMOVE THIS! RANDOM ASSIGN FOR DEMO
-    assignment = {teamId:teams[Math.floor(Math.random()*6)],scoutId}
-    this.getAssignments().push(assignment)
+    // assignment = {teamId:teams[Math.floor(Math.random()*6)],scoutId}
+    // this.getAssignments().push(assignment)
 
     // remove teams that are already assigned list
     teams = teams.filter(team=>!this.getAssignments().find(pairing=>pairing.teamId == team));

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h2>Timelord</h2>
+        <button onclick="sendRequest()">send request</button>
+        
+        <div class="controls">
+            <div class="control">
+            Override Time?
+            <input id="override" class="checkbox" type="checkbox">
+            <br>
+        </div>
+
+    <div class="control">
+            Match #:
+            <input id="match" class="inputText" type="number">
+</div>
+
+<div class="control">
+    Status<br>
+
+   <div class="selections">
+    <div class="control">Waiting
+        <input id="waiting" class="radio" type="radio" checked="true" onchange="document.querySelector('#inprogress').checked = false"></input>
+
+    </div>
+    <div class="control">Active
+    <input id="inprogress" class="radio" type="radio" onchange="document.querySelector('#waiting').checked = false"></input>
+
+    </div>
+   </div>
+</div>
+
+<div class="control">
+    Override Robots?
+    <input id="robotoverride" class="checkbox" type="checkbox">
+    <br>
+
+<div>
+Red
+<input id="red">
+</div>
+<div>
+Blue
+<input id="blue">
+</div>
+
+        </div>
+     
+    </body>
+    <script src="script.js"></script>
+</html>

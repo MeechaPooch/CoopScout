@@ -8,4 +8,16 @@ export class TimeLord {
     robotsOverridden = false;
     red = []
     blue = []
+
+    bindApi(app) {
+        app.put('/timelord',(req,res)=>{
+            this.timeOverridden = req.body.override;
+            this.match = req.body.match;
+            this.status = req.body.status;
+            this.robotsOverridden = req.body.robotsOverride;
+            this.red = req.body.red;
+            this.blue = req.body.blue;
+        })
+    }
+
 }

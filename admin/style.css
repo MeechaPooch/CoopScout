@@ -1,0 +1,45 @@
+body{
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 6vh;
+}
+h2{
+    font-size: 10vh;
+    /* font-size: 100px; */
+}
+.checkbox{
+    height:16vh;
+    width:16vh;
+}
+.inputText{
+    font-size: 10vh;
+    height:10vh;
+    width:20vh;
+}
+.radio{
+    width:10vh;
+    height:10vh;
+}
+.control{
+    display: flex;
+    flex-flow:column nowrap;
+    align-items: center;
+}
+.controls{
+    width:70vw;
+    gap:30px;
+    display: flex;
+    flex-flow:row wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.selections{
+    display: flex;
+    flex-flow: row nowrap;
+    font-size:30px;
+    gap:10px;
+}
