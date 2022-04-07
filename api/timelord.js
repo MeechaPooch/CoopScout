@@ -17,6 +17,7 @@ export class TimeLord {
             this.robotsOverridden = req.body.robotsOverride;
             this.red = req.body.red;
             this.blue = req.body.blue;
+            console.log(this)
         })
     }
 
