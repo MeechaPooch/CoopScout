@@ -10,6 +10,11 @@ h2{
     font-size: 10vh;
     /* font-size: 100px; */
 }
+button{
+    height:7vh;
+    width:30vh;
+    font-size: 4vh;
+}
 .checkbox{
     height:16vh;
     width:16vh;
