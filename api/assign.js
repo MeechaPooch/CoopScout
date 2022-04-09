@@ -21,6 +21,8 @@ getScoutAssignment(scoutId) {
 }
 
 assignScout(scoutId, teams) {
+    if(scoutId == 'demo') { return teams[0] }
+
     let priority = this.priority;
     // check if scout id is already assigned
     let assignment = this.getScoutAssignment(scoutId)
