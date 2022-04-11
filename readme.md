@@ -20,6 +20,9 @@
 
 
 ## Examples
+pwa on homescreen img width="300" alt="yeetus feetus" src="https://user-images.githubusercontent.com/55720333/162842871-48c57f67-86f8-4d06-b71d-75f11d99f013.PNG">
+
+
 data spreadsheet
 <img width="1245" alt="example data" src="https://user-images.githubusercontent.com/55720333/162841995-b9a43179-d4dc-40be-a566-e1f181996251.png">
 
