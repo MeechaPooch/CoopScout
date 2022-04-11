@@ -16,7 +16,7 @@
     └─ env.js
 - `cd` into "api" and npm install
 - node run index.js `node .`
-- hurrah! coopscout is now hosting on [localhost:3001/](http://localhost:3001)
+- hurrah! coopscout is now hosting on [localhost:3001](http://localhost:3001)
 
 
 ## Examples
