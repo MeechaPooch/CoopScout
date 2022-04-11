@@ -86,7 +86,7 @@ app.get('/qrAssign',(req,res)=>{
         name:teamInfo.nickname,
         match:NOW.match
     }
-    let html = FileSave.readFile('./../site/assignment.html').toString()
+    let html = FileSave.readFile('./../pages/site/assignment.html').toString()
     html = html.replace('$[color]',retInfo.color)
     html = html.replace('$[teamnumber]',retInfo.number)
     html = html.replace('$[matchnumber]',retInfo.match)
@@ -120,6 +120,6 @@ app.get(submitGetRoute,(req,res)=>{
     let recorded = sheets.record(formdata)
     let scoutId = req.query.scoutId
 
-    res.sendFile(recorded ? 'recorded.html' : 'duplicate.html',{root:'../site'})
+    res.sendFile(recorded ? 'recorded.html' : 'duplicate.html',{root:'../pages/site'})
 })
 app.listen(port,()=>{console.log('api listening...')})
