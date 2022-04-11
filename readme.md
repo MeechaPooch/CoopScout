@@ -1,7 +1,7 @@
 # CoopScout
 ### 1540's superior FRC scouting experience
-![coopscout_circle](https://user-images.githubusercontent.com/55720333/162840776-c2d9c5ab-4bb6-4370-a68b-fb5301e98de6.png)
-![newthing](https://user-images.githubusercontent.com/55720333/162840941-03113d1d-d1d4-4782-9a5a-c95979207049.gif)
+<img width="300" alt="coopscout demo" src="https://user-images.githubusercontent.com/55720333/162840941-03113d1d-d1d4-4782-9a5a-c95979207049.gif">
+<img width="200" alt="coopscout logo" src="https://user-images.githubusercontent.com/55720333/162840776-c2d9c5ab-4bb6-4370-a68b-fb5301e98de6.png">
 
 ## Requirements (google sheets version):
 - A server setup running recent node version (I developed coopscout using v17.6.0)
