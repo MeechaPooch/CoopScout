@@ -19,8 +19,10 @@
 - hurrah! coopscout is now hosting on [localhost:3001/]
 
 
-
 ## Examples
+data spreadsheet
+<img width="1245" alt="example data" src="https://user-images.githubusercontent.com/55720333/162841995-b9a43179-d4dc-40be-a566-e1f181996251.png">
+
 api/secrets/env.js
 ```js
 export const env = {
