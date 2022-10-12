@@ -21,7 +21,7 @@ getScoutAssignment(scoutId) {
 }
 
 assignScout(scoutId, teams) {
-    if(TIMELORD.demo) { return {teamId:teams[0],scoutId} }
+    if(TIMELORD.demo) { return {teamId:teams[Math.floor(Math.random()*teams.length)],scoutId} }
 
     let priority = this.priority;
     // check if scout id is already assigned
