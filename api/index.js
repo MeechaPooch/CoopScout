@@ -56,7 +56,7 @@ timelord.bindApi(app)
 // requester encodes their scoutId in url query
 app.get('/assign',(req,res)=>{
     recalcNow()
-    let scoutId = req.query.scoutId
+    let scoutId = req.query.scoutId 
     if(!scoutId) {res.send({err:'please encode scout id in url query'}); return;}
     if(NOW.status == 'active' && !assigner.getScoutAssignment(scoutId)) {res.send({active:true,err:'match is currently active'});return;}
     let scoutInfo = assigner.assignScout(scoutId,matchdb.getCurrentTeams())
@@ -122,4 +122,4 @@ app.get(submitGetRoute,(req,res)=>{
 
     res.sendFile(recorded ? 'recorded.html' : 'duplicate.html',{root:'../pages/site'})
 })
-app.listen(port,()=>{console.log('api listening...')})
+app.listen(port,()=>{console.log('listening on port ' + port)})

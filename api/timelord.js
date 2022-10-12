@@ -4,6 +4,7 @@ export class TimeLord {
     timeOverridden = true;
     match=10;
     status='waiting' // active or waiting
+    demo = false;
 
     robotsOverridden = false;
     red = []
@@ -18,6 +19,7 @@ export class TimeLord {
             this.robotsOverridden = req.body.robotsOverride;
             this.red = req.body.red;
             this.blue = req.body.blue;
+            this.demo = req.body.demo;
             console.log(this);
             res.end()
         })

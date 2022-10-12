@@ -4,6 +4,7 @@ function getBody() {
     ret.match = parseInt(document.querySelector('#match').value);
     ret.status = document.querySelector('#waiting').checked ? "waiting" : "active";
     ret.robotsOverride =  document.querySelector('#robotoverride').checked;
+    ret.demo =  document.querySelector('#demo').checked;
     ret.red = document.querySelector('#red').value.split(',')
     ret.blue = document.querySelector('#blue').value.replaceAll(' ','').split(',')
     return ret;
