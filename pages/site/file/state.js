@@ -135,7 +135,7 @@ async function queryScoutData(override) {
     setOffline(false)
     let json = await res.json();
     console.log(json)
-    if(json.match == STATE.justSubmitted) {
+    if(json.match == STATE.justSubmitted && json.match != -1) { // if match = -1, overide and set
         return;
     }
     if(json?.code == 'filled'){
