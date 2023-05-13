@@ -20,7 +20,7 @@
 
 
 ## Examples
-pwa on homescreen img width="300" alt="yeetus feetus" src="https://user-images.githubusercontent.com/55720333/162842871-48c57f67-86f8-4d06-b71d-75f11d99f013.PNG">
+pwa on homescreen <img width="300" alt="yeetus feetus" src="https://user-images.githubusercontent.com/55720333/162842871-48c57f67-86f8-4d06-b71d-75f11d99f013.PNG">
 
 
 data spreadsheet
